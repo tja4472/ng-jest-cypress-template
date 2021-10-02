@@ -1,4 +1,17 @@
+- [NgAngularfireTestbed](#ngangularfiretestbed)
+  - [Create project](#create-project)
+  - [Add eslint](#add-eslint)
+  - [Add prettier](#add-prettier)
+    - [Install](#install)
+    - [Add .prettierignore](#add-prettierignore)
+    - [Add .prettierrc.json](#add-prettierrcjson)
+    - [Install eslint-config-prettier:](#install-eslint-config-prettier)
+    - [Update .eslintrc.json](#update-eslintrcjson)
+    - [Edit package.json](#edit-packagejson)
+
 # NgAngularfireTestbed
+
+## Create project
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.8.
 
@@ -6,32 +19,76 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ng new ng-angularfire-testbed --style=css --routing --strict
 ```
 
+## Add eslint
+
 https://github.com/angular-eslint/angular-eslint
 
 ```bash
 ng add @angular-eslint/schematics
 ```
 
-## Development server
+## Add prettier
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Install
 
-## Code scaffolding
+```bash
+npm install --save-dev --save-exact prettier
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Add .prettierignore
 
-## Build
+```
+package.json
+package-lock.json
+dist
+build
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Add .prettierrc.json
 
-## Running unit tests
+```json
+{
+  "printWidth": 80,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "bracketSpacing": true,
+  "jsxBracketSameLine": false,
+  "arrowParens": "always",
+  "requirePragma": false,
+  "insertPragma": false,
+  "proseWrap": "preserve",
+  "endOfLine": "auto"
+}
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Install eslint-config-prettier:
 
-## Running end-to-end tests
+```bash
+npm install --save-dev --save-exact eslint-config-prettier
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Update .eslintrc.json
 
-## Further help
+```json
+{
+  "extends": [
+    "plugin:@angular-eslint/recommended",
+    "plugin:@angular-eslint/template/process-inline-templates",
+    "prettier"
+  ]
+}
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Edit package.json
+
+```json
+{
+  "scripts": {
+    "prettier:check": "prettier --check .",
+    "prettier:write": "prettier --write ."
+  }
+}
+```
