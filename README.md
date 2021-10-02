@@ -2,6 +2,16 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.8.
 
+```bash
+ng new ng-angularfire-testbed --style=css --routing --strict
+```
+
+https://github.com/angular-eslint/angular-eslint
+
+```bash
+ng add @angular-eslint/schematics
+```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
