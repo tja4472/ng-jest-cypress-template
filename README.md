@@ -8,6 +8,13 @@
     - [Install eslint-config-prettier:](#install-eslint-config-prettier)
     - [Update .eslintrc.json](#update-eslintrcjson)
     - [Edit package.json](#edit-packagejson)
+  - [Add jest](#add-jest)
+    - [Remove karma & jasmine](#remove-karma--jasmine)
+    - [Install](#install-1)
+    - [Create setup-jest.ts](#create-setup-jestts)
+    - [Create jest.config.js](#create-jestconfigjs)
+    - [Edit tsconfig.spec.json](#edit-tsconfigspecjson)
+    - [Edit package.json](#edit-packagejson-1)
 
 # NgAngularfireTestbed
 
@@ -89,6 +96,75 @@ npm install --save-dev --save-exact eslint-config-prettier
   "scripts": {
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write ."
+  }
+}
+```
+
+## Add jest
+
+https://github.com/thymikee/jest-preset-angular
+
+### Remove karma & jasmine
+
+```bash
+npm remove karma karma-chrome-launcher karma-coverage karma-jasmine karma-jasmine-html-reporter @types/jasmine jasmine-core
+```
+
+```bash
+rm ./karma.conf.js ./src/test.ts
+```
+
+### Install
+
+```bash
+npm install --save-dev --save-exact jest jest-preset-angular @types/jest
+```
+
+### Create setup-jest.ts
+
+In project root:
+
+```ts
+import 'jest-preset-angular/setup-jest';
+```
+
+### Create jest.config.js
+
+In project root:
+
+```js
+require('jest-preset-angular/ngcc-jest-processor');
+
+module.exports = {
+  preset: 'jest-preset-angular',
+  setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
+  testPathIgnorePatterns: ['<rootDir>/cypress/'],
+};
+```
+
+### Edit tsconfig.spec.json
+
+```json
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "outDir": "./out-tsc/spec",
+    "types": ["jest"]
+  },
+  "files": ["src/polyfills.ts"],
+  "include": ["src/**/*.spec.ts", "src/**/*.d.ts"]
+}
+```
+
+### Edit package.json
+
+```json
+{
+  "scripts": {
+    // ...
+    "test": "jest"
+    // ...
   }
 }
 ```
