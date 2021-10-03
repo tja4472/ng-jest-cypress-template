@@ -16,10 +16,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'ng-angularfire-testbed'`, () => {
+  it(`should have as title 'ng-jest-cypress-template'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('ng-angularfire-testbed');
+    expect(app.title).toEqual('ng-jest-cypress-template');
   });
 
   it('should render title', () => {
@@ -27,7 +27,7 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.content span')?.textContent).toContain(
-      'ng-angularfire-testbed app is running!'
+      'ng-jest-cypress-template app is running!'
     );
   });
 });

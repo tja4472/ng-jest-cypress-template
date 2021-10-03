@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng-angularfire-testbed": {
+    "ng-jest-cypress-template": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ng-angularfire-testbed",
+            "outputPath": "dist/ng-jest-cypress-template",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -63,10 +63,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ng-angularfire-testbed:build:production"
+              "browserTarget": "ng-jest-cypress-template:build:production"
             },
             "development": {
-              "browserTarget": "ng-angularfire-testbed:build:development"
+              "browserTarget": "ng-jest-cypress-template:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -74,7 +74,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ng-angularfire-testbed:build"
+            "browserTarget": "ng-jest-cypress-template:build"
           }
         },
         "test": {
@@ -98,7 +98,7 @@
       }
     }
   },
-  "defaultProject": "ng-angularfire-testbed",
+  "defaultProject": "ng-jest-cypress-template",
   "cli": {
     "defaultCollection": "@angular-eslint/schematics"
   }
