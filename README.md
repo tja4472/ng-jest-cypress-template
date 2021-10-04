@@ -18,12 +18,13 @@
   - [1.5. Add cypress](#15-add-cypress)
     - [1.5.1. Websites](#151-websites)
     - [1.5.2. Install Cypress](#152-install-cypress)
-    - [1.5.3. Update package.json](#153-update-packagejson)
-    - [1.5.4. Add tsconfig.json](#154-add-tsconfigjson)
-    - [1.5.5. Add typescipt.spec.ts](#155-add-typesciptspects)
-    - [1.5.6. Add Angular test files](#156-add-angular-test-files)
-      - [1.5.6.1. Add po.ts](#1561-add-pots)
-      - [1.5.6.2. Add angular.spec.ts](#1562-add-angularspects)
+    - [1.5.3. Update cypress.json](#153-update-cypressjson)
+    - [1.5.4. Update package.json](#154-update-packagejson)
+    - [1.5.5. Add tsconfig.json](#155-add-tsconfigjson)
+    - [1.5.6. Add typescipt.spec.ts](#156-add-typesciptspects)
+    - [1.5.7. Add Angular test files](#157-add-angular-test-files)
+      - [1.5.7.1. Add po.ts](#1571-add-pots)
+      - [1.5.7.2. Add angular.spec.ts](#1572-add-angularspects)
 
 # 1. ng-jest-cypress-template
 
@@ -195,7 +196,16 @@ npm install --save-dev --save-exact cypress
 npx cypress open
 ```
 
-### 1.5.3. Update package.json
+### 1.5.3. Update cypress.json
+
+```json
+{
+  "baseUrl": "http://localhost:4200",
+  "defaultCommandTimeout": 10000
+}
+```
+
+### 1.5.4. Update package.json
 
 ```json
 {
@@ -206,7 +216,7 @@ npx cypress open
 }
 ```
 
-### 1.5.4. Add tsconfig.json
+### 1.5.5. Add tsconfig.json
 
 In `cypress` folder
 
@@ -222,7 +232,7 @@ In `cypress` folder
 }
 ```
 
-### 1.5.5. Add typescipt.spec.ts
+### 1.5.6. Add typescipt.spec.ts
 
 In `cypress/integration` folder.
 
@@ -232,9 +242,9 @@ it('works', () => {
 });
 ```
 
-### 1.5.6. Add Angular test files
+### 1.5.7. Add Angular test files
 
-#### 1.5.6.1. Add po.ts
+#### 1.5.7.1. Add po.ts
 
 In `cypress\support` folder.
 
@@ -247,7 +257,7 @@ export const navigateTo = () => cy.visit(url);
 export const getGreeting = () => cy.get('.toolbar > span');
 ```
 
-#### 1.5.6.2. Add angular.spec.ts
+#### 1.5.7.2. Add angular.spec.ts
 
 In `cypress\integrations\`
 
