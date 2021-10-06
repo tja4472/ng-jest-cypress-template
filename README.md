@@ -13,8 +13,9 @@
     - [1.4.2. Install](#142-install)
     - [1.4.3. Create setup-jest.ts](#143-create-setup-jestts)
     - [1.4.4. Create jest.config.js](#144-create-jestconfigjs)
-    - [1.4.5. Edit tsconfig.spec.json](#145-edit-tsconfigspecjson)
-    - [1.4.6. Edit package.json](#146-edit-packagejson)
+    - [1.4.5. Edit tsconfig.json](#145-edit-tsconfigjson)
+    - [1.4.6. Edit tsconfig.spec.json](#146-edit-tsconfigspecjson)
+    - [1.4.7. Edit package.json](#147-edit-packagejson)
   - [1.5. Add cypress](#15-add-cypress)
     - [1.5.1. Websites](#151-websites)
     - [1.5.2. Install Cypress](#152-install-cypress)
@@ -152,7 +153,20 @@ module.exports = {
 };
 ```
 
-### 1.4.5. Edit tsconfig.spec.json
+### 1.4.5. Edit tsconfig.json
+
+See https://github.com/cypress-io/cypress-and-jest-typescript-example
+
+```json
+{
+  // Required for jest to work with cypress
+  "include": ["src/*.ts"],
+  "exclude": ["src/*.spec.ts"]
+  //
+}
+```
+
+### 1.4.6. Edit tsconfig.spec.json
 
 ```json
 {
@@ -167,7 +181,7 @@ module.exports = {
 }
 ```
 
-### 1.4.6. Edit package.json
+### 1.4.7. Edit package.json
 
 ```json
 {
