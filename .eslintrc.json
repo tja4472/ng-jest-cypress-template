@@ -29,6 +29,10 @@
             "prefix": "app",
             "style": "kebab-case"
           }
+        ],
+        "@typescript-eslint/consistent-type-assertions": [
+          "error",
+          { "assertionStyle": "never" }
         ]
       }
     },
