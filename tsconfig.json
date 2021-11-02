@@ -16,7 +16,10 @@
     "importHelpers": true,
     "target": "es2017",
     "module": "es2020",
-    "lib": ["es2018", "dom"]
+    "lib": ["es2018", "dom"],
+    "paths": {
+      "@app/*": ["src/app/*"]
+    }
   },
   // Required for jest to work with cypress
   "include": ["src/*.ts"],

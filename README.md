@@ -26,6 +26,10 @@
     - [1.5.7. Add Angular test files](#157-add-angular-test-files)
       - [1.5.7.1. Add po.ts](#1571-add-pots)
       - [1.5.7.2. Add angular.spec.ts](#1572-add-angularspects)
+- [Extras](#extras)
+  - [Jest paths mapping](#jest-paths-mapping)
+    - [Typescript config](#typescript-config)
+    - [Jest config](#jest-config)
 
 # 1. ng-jest-cypress-template
 
@@ -285,4 +289,39 @@ describe('Hello Angular', () => {
     getGreeting().contains('Welcome');
   });
 });
+```
+
+# Extras
+
+## Jest paths mapping
+
+### Typescript config
+
+```ts
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@app/*": ["src/app/*"]
+    }
+  }
+}
+```
+
+### Jest config
+
+```js
+module.exports = {
+  /*
+    https://kulshekhar.github.io/ts-jest/docs/getting-started/paths-mapping/
+
+    tsconfig.json
+    "paths": {
+      "@app/*": ["src/app/*"]
+    }
+  */
+  moduleNameMapper: {
+    '^@app/(.*)$': '<rootDir>/src/app/$1',
+  },
+};
 ```
