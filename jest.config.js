@@ -8,8 +8,9 @@ module.exports = {
     https://kulshekhar.github.io/ts-jest/docs/getting-started/paths-mapping/
 
     tsconfig.json
+    "baseUrl": "src",    
     "paths": {
-      "@app/*": ["src/app/*"]
+      "@app/*": ["app/*"]
     }
   */
     moduleNameMapper: {

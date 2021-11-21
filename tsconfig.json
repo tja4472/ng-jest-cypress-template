@@ -2,7 +2,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -17,13 +16,15 @@
     "target": "es2017",
     "module": "es2020",
     "lib": ["es2018", "dom"],
+    "types": ["jest"],
+    "baseUrl": "src",    
     "paths": {
-      "@app/*": ["src/app/*"]
+      "@app/*": ["app/*"]
     }
   },
   // Required for jest to work with cypress
-  "include": ["src/*.ts"],
-  "exclude": ["src/*.spec.ts"],
+  "include": ["src/**/*"],
+  "exclude": ["src/**/*.spec.ts"],
   //
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
