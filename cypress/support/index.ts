@@ -12,14 +12,14 @@
 // You can read more here:
 // https://on.cypress.io/configuration
 // ***********************************************************
-import './commands'
+import './commands';
 
 // Waiting for update to cypress
 // fix: Add more precise types to Cypress.Commands #19003
 // https://github.com/cypress-io/cypress/pull/19003
 Cypress.Commands.add('dataCy', (value) => {
-  return cy.get(`[data-cy=${value}]`)
-})
+  return cy.get(`[data-cy=${value}]`);
+});
 
 /*
 // in cypress/support/index.ts
@@ -33,7 +33,7 @@ declare global {
        * Custom command to select DOM element by data-cy attribute.
        * @example cy.dataCy('greeting')
        */
-      dataCy(value: string): Chainable<Element>
+      dataCy(value: string): Chainable<Element>;
     }
-  } 
+  }
 }
