@@ -92,7 +92,7 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+            "lintFilePatterns": ["cypress/**/*.ts", "src/**/*.ts", "src/**/*.html"]
           }
         }
       }
