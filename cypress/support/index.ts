@@ -14,13 +14,6 @@
 // ***********************************************************
 import './commands';
 
-// Waiting for update to cypress
-// fix: Add more precise types to Cypress.Commands #19003
-// https://github.com/cypress-io/cypress/pull/19003
-Cypress.Commands.add('dataCy', (value) => {
-  return cy.get(`[data-cy=${value}]`);
-});
-
 /*
 // in cypress/support/index.ts
 // load type definitions that come with Cypress module
@@ -28,12 +21,12 @@ Cypress.Commands.add('dataCy', (value) => {
 */
 declare global {
   namespace Cypress {
-    interface Chainable {
+    interface Chainable<Subject> {
       /**
        * Custom command to select DOM element by data-cy attribute.
        * @example cy.dataCy('greeting')
        */
-      dataCy(value: string): Chainable<Element>;
+      dataCy(value: string): Chainable<JQuery<HTMLElement>>;
     }
   }
 }
