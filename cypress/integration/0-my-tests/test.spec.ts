@@ -1,4 +1,4 @@
-import { navigateTo, getGreeting } from '../support/po';
+import { navigateTo, getGreeting } from '../../support/po';
 
 describe('Tests', () => {
   beforeEach(navigateTo);
