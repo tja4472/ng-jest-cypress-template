@@ -2,9 +2,12 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
@@ -15,12 +18,13 @@
     "importHelpers": true,
     "target": "es2017",
     "module": "es2020",
-    "lib": ["es2018", "dom"],
+    "lib": ["es2020", "dom"],
+    // Added to ng new app
     "types": ["jest"],
-    "baseUrl": "src",
     "paths": {
-      "@app/*": ["app/*"]
+      "@app/*": ["src/app/*"]
     }
+    // ^^^^
   },
   // Required for jest to work with cypress
   "include": ["src/**/*"],
