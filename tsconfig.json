@@ -28,7 +28,7 @@
   },
   // Required for jest to work with cypress
   "include": ["src/**/*"],
-  "exclude": ["src/**/*.spec.ts"],
+  // "exclude": ["src/**/*.spec.ts"],
   //
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
