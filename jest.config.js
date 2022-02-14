@@ -13,6 +13,6 @@ module.exports = {
     }
   */
   moduleNameMapper: {
-    '^@app/(.*)$': '<rootDir>/src/app/$1',
+    '^@app\/(.*)$': '<rootDir>/src/app/$1',
   },
 };
