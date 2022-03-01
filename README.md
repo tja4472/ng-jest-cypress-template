@@ -30,6 +30,7 @@
   - [Jest paths mapping](#jest-paths-mapping)
     - [Typescript config](#typescript-config)
     - [Jest config](#jest-config)
+- [App Actions](#app-actions)
 
 # 1. ng-jest-cypress-template
 
@@ -325,3 +326,7 @@ module.exports = {
   },
 };
 ```
+# App Actions
+- https://glebbahmutov.com/blog/testing-angular-application-via-app-actions/
+- https://www.cypress.io/blog/2019/01/03/stop-using-page-objects-and-start-using-app-actions/
+- 
