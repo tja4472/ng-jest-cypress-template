@@ -1,7 +1,7 @@
-const TEST_SERVICE = 'TestService';
+const SERVICE_NAME = 'TestService';
 
 export const getService = () =>
-  cy.window().should('have.property', TEST_SERVICE);
+  cy.window().should('have.property', SERVICE_NAME);
 
 export const getProperty = () =>
   getService()
@@ -10,7 +10,7 @@ export const getProperty = () =>
     .then((s) => <string>(<unknown>s));
 
 export const callMethod1 = (text: string) =>
-  cy.window().its(TEST_SERVICE).invoke('method1', text);
+  cy.window().its(SERVICE_NAME).invoke('method1', text);
 
 export const callPromise1 = (text: string) =>
-  cy.window().its(TEST_SERVICE).invoke('promise1', text);
+  cy.window().its(SERVICE_NAME).invoke('promise1', text);
