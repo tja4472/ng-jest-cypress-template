@@ -20,7 +20,7 @@
     "module": "es2020",
     "lib": ["es2020", "dom"],
     // Added to ng new app
-    "types": ["jest"],
+    "types": ["jest", "node"],
     "paths": {
       "@app/*": ["src/app/*"]
     }
