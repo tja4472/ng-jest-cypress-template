@@ -34,5 +34,6 @@ jobs:
     - name: Cypress run
       uses: cypress-io/github-action@v2
       with:
-        build: npm run build
+        spec: cypress/integration/0-my-tests/**    
+        # build: npm run build
         start: npm start    
