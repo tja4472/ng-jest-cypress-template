@@ -39,7 +39,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.8.
 
 ```bash
-ng new ng-jest-cypress-template --style=css --routing --strict
+ng new ng-jest-cypress-template --style=scss --routing --strict
 ```
 
 ## 1.2. Add eslint
