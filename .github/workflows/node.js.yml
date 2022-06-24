@@ -5,7 +5,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
+      - update
   pull_request:
     branches: [ master ]
 
@@ -35,5 +37,6 @@ jobs:
       uses: cypress-io/github-action@v4
       with:
         spec: cypress/e2e/0-my-tests/**    
-        # build: npm run build
-        start: npm start    
+        # node 18 doesn't like localhost so use 127.0.0.1
+        start: npm start -- --host 127.0.0.1   
+        wait-on: 'http://127.0.0.1:4200'                
