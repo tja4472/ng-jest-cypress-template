@@ -107,14 +107,19 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["cypress/**/*.ts", "src/**/*.ts", "src/**/*.html"]
+            "lintFilePatterns": [
+              "cypress/**/*.ts",
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
           }
         }
       }
     }
   },
-  "defaultProject": "ng-jest-cypress-template",
   "cli": {
-    "defaultCollection": "@angular-eslint/schematics"
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
