@@ -31,6 +31,7 @@
     - [Typescript config](#typescript-config)
     - [Jest config](#jest-config)
 - [App Actions](#app-actions)
+  - [Jest](#jest)
 
 # 1. ng-jest-cypress-template
 
@@ -326,7 +327,18 @@ module.exports = {
   },
 };
 ```
+
 # App Actions
+
 - https://glebbahmutov.com/blog/testing-angular-application-via-app-actions/
 - https://www.cypress.io/blog/2019/01/03/stop-using-page-objects-and-start-using-app-actions/
-- 
+
+## Jest
+
+- https://github.com/import-js/eslint-plugin-import
+- https://github.com/jest-community/eslint-plugin-jest#readme
+- https://github.com/testing-library/eslint-plugin-jest-dom#readme
+- https://github.com/testing-library/eslint-plugin-testing-library
+- https://github.com/testing-library/angular-testing-library/blob/main/apps/example-app/src/app/examples/02-input-output.spec.ts
+- https://github.com/testing-library/jest-dom
+- https://github.com/testing-library/user-event#readme
