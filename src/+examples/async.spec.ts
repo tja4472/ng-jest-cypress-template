@@ -1,3 +1,18 @@
+// #region eslint-plugin-jest
+// https://github.com/jest-community/eslint-plugin-jest/blob/v26.8.2/docs/rules/no-conditional-expect.md
+class NoErrorThrownError extends Error {}
+
+const getError = async <TError>(call: () => unknown): Promise<TError> => {
+  try {
+    await call();
+
+    throw new NoErrorThrownError();
+  } catch (error: unknown) {
+    return error as TError;
+  }
+};
+// #endregion
+
 interface User {
   name: string;
 }
@@ -28,26 +43,26 @@ describe('async testing', () => {
   // Testing promise can be done using `.resolves`.
   it('works with resolves', () => {
     expect.assertions(1);
-    return expect(getUserName(5)).resolves.toEqual('Paul');
+    return expect(getUserName(5)).resolves.toBe('Paul');
   });
 
   // The assertion for a promise must be returned.
   it('works with promises', () => {
     expect.assertions(1);
-    return getUserName(4).then((data) => expect(data).toEqual('Mark'));
+    return getUserName(4).then((data) => expect(data).toBe('Mark'));
   });
 
   // async/await can be used.
   it('works with async/await', async () => {
     expect.assertions(1);
     const data = await getUserName(4);
-    expect(data).toEqual('Mark');
+    expect(data).toBe('Mark');
   });
 
   // async/await can also be used with `.resolves`.
   it('works with async/await and resolves', async () => {
     expect.assertions(1);
-    await expect(getUserName(5)).resolves.toEqual('Paul');
+    await expect(getUserName(5)).resolves.toBe('Paul');
   });
 
   // Testing for async errors using `.rejects`.
@@ -58,10 +73,21 @@ describe('async testing', () => {
     });
   });
 
+  it('tests error using getError suggested by eslint-plugin-jest', async () => {
+    const error = await getError(async () => getUserName(2));
+
+    // check that the returned error wasn't that no error was thrown
+    expect(error).not.toBeInstanceOf(NoErrorThrownError);
+    expect(error).toEqual({
+      error: 'User with 2 not found.',
+    });
+  });
+
   // Testing for async errors using Promise.catch.
-  test('tests error with promises', async () => {
+  it('tests error with promises', async () => {
     expect.assertions(1);
     return getUserName(2).catch((e) =>
+      // eslint-disable-next-line jest/no-conditional-expect
       expect(e).toEqual({
         error: 'User with 2 not found.',
       })
@@ -74,6 +100,7 @@ describe('async testing', () => {
     try {
       await getUserName(1);
     } catch (e) {
+      // eslint-disable-next-line jest/no-conditional-expect
       expect(e).toEqual({
         error: 'User with 1 not found.',
       });

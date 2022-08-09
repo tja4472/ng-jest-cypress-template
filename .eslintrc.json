@@ -8,6 +8,11 @@
         "project": ["tsconfig.json"],
         "createDefaultProgram": true
       },
+      "plugins": [
+        "eslint-plugin-import",
+        "@angular-eslint/eslint-plugin",
+        "@typescript-eslint"
+      ],
       "extends": [
         "plugin:@angular-eslint/recommended",
         "plugin:@angular-eslint/template/process-inline-templates",
@@ -40,6 +45,23 @@
       "files": ["*.html"],
       "extends": ["plugin:@angular-eslint/template/recommended"],
       "rules": {}
+    },
+    {
+      "files": ["*.spec.ts"],
+      "env": {
+        "jest": true
+      },
+      "extends": [
+        "plugin:testing-library/angular",
+        "plugin:jest/recommended",
+        "plugin:jest/style",
+        "plugin:jest-dom/recommended"
+      ],
+      "rules": {
+        "testing-library/prefer-explicit-assert": "error",
+        "jest/consistent-test-it": ["error"],
+        "jest/expect-expect": "off"
+      }
     }
   ]
 }
