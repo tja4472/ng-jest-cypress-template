@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { EnvironmentService } from '@app/environment.service';
+
 import { ServiceAService } from '@app/services/service-a.service';
 import { TestService } from '@app/services/test.service';
 
@@ -10,6 +12,14 @@ import { TestService } from '@app/services/test.service';
 })
 export class AppComponent {
   title = 'ng-jest-cypress-template';
+  appCode = '';
 
-  constructor(serviceA: ServiceAService, testService: TestService) {}
+  constructor(
+    environmentService: EnvironmentService,
+    serviceA: ServiceAService,
+    testService: TestService
+  ) {
+    console.log('environmentService.appCode>', environmentService.appCode);
+    this.appCode = environmentService.appCode;
+  }
 }

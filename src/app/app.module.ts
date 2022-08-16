@@ -7,6 +7,10 @@ import { AppComponent } from './app.component';
 import { InputOutputComponent } from '../+examples/02-input-output';
 import { FormsComponent } from '../+examples/03-forms';
 
+import { EnvironmentService } from './environment.service';
+
+const environmentService = new EnvironmentService();
+
 @NgModule({
   declarations: [AppComponent, InputOutputComponent, FormsComponent],
   imports: [BrowserModule, ReactiveFormsModule, AppRoutingModule],
