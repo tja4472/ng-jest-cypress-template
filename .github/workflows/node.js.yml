@@ -1,6 +1,8 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
+# https://github.com/marketplace/actions/cypress-io
+
 name: Node.js CI
 
 on:
@@ -9,11 +11,15 @@ on:
       - master
       - update
   pull_request:
-    branches: [ master ]
+    branches: [master]
+
+env:
+  # default changed in node 17
+  # https://nodejs.org/dist/latest-v18.x/docs/api/cli.html#--dns-result-orderorder
+  NODE_OPTIONS: --dns-result-order=ipv4first
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -22,21 +28,28 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
-    - name: Cypress run
-      uses: cypress-io/github-action@v4
-      with:
-        spec: cypress/e2e/0-my-tests/**    
-        # node 18 doesn't like localhost so use 127.0.0.1
-        start: npm start -- --host 127.0.0.1   
-        wait-on: 'http://127.0.0.1:4200'                
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test
+        # Install NPM dependencies, cache them correctly
+        # and run all Cypress tests
+      - name: Run E2E tests
+        uses: cypress-io/github-action@v4
+        with:
+          spec: cypress/e2e/0-my-tests/**
+          start: npm start
+          wait-on: 'http://localhost:4200'
+
+      - name: Run Component tests 🧪
+        uses: cypress-io/github-action@v4
+        with:
+          # we have already installed everything
+          install: false
+          # to run component tests we need to use "component: true"
+          component: true
