@@ -8,8 +8,10 @@
     "watch": "ng build --watch --configuration development",
     "test": "jest",
     "lint": "ng lint",
-    "cypress:open": "cypress open --e2e --browser chrome",
+    "cypress:open:e2e": "cypress open --e2e",
+    "cypress:open:component": "cypress open --component",    
     "cypress:run": "cypress run",
+    "cypress:run:component": "cypress run --component",        
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write ."
   },

@@ -8,11 +8,17 @@ import { InputOutputComponent } from '../+examples/02-input-output';
 import { FormsComponent } from '../+examples/03-forms';
 
 import { EnvironmentService } from './environment.service';
+import { StepperComponent } from './stepper/stepper.component';
 
 const environmentService = new EnvironmentService();
 
 @NgModule({
-  declarations: [AppComponent, InputOutputComponent, FormsComponent],
+  declarations: [
+    AppComponent,
+    InputOutputComponent,
+    FormsComponent,
+    StepperComponent,
+  ],
   imports: [BrowserModule, ReactiveFormsModule, AppRoutingModule],
   providers: [],
   // bootstrap: [AppComponent],

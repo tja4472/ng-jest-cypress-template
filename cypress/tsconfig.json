@@ -2,7 +2,8 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "sourceMap": false,    
-    "types": ["cypress", "node"]
+    "types": ["cypress", "node"],
   },
   "include": ["**/*.ts"],  
+  "files": [],  
 }

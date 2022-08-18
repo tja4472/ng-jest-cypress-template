@@ -346,3 +346,5 @@ module.exports = {
 - https://github.com/testing-library/angular-testing-library/blob/main/apps/example-app/src/app/examples/02-input-output.spec.ts
 - https://github.com/testing-library/jest-dom
 - https://github.com/testing-library/user-event
+
+https://docs.cypress.io/guides/component-testing/component-test-troubleshooting

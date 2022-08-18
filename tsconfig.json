@@ -20,16 +20,17 @@
     "module": "es2020",
     "lib": ["es2020", "dom"],
     // Added to ng new app
-    "types": ["jest", "node"],
+    // "types": ["jest", "node"],
     "paths": {
       "@app/*": ["src/app/*"]
     }
     // ^^^^
   },
   // Required for jest to work with cypress
-  "include": ["src/**/*", "./setup-jest.ts"],
+  // "include": ["src/**/*", "./setup-jest.ts"],
   // ^^^^
-  "files": ["./setup-jest.ts"],  
+  "include": ["src/**/*.ts"],
+  "files": ["./setup-jest.ts"],
   // "exclude": ["src/**/*.spec.ts"],
   //
   "angularCompilerOptions": {
