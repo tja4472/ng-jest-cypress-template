@@ -1,5 +1,5 @@
 import { EventEmitter } from '@angular/core';
-import { StepperComponent } from '../stepper.component';
+import { StepperComponent } from '@app/stepper/stepper.component';
 import { createOutputSpy } from 'cypress/angular';
 
 // Set up some constants for the selectors
