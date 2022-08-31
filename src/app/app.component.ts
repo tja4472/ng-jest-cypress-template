@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 
 import { EnvironmentService } from '@app/environment.service';
 
-import { ServiceAService } from '@app/services/service-a.service';
-import { TestService } from '@app/services/test.service';
+import { AppActionsTestService } from '@app/services/app-actions-test.service';
 
 @Component({
   selector: 'app-root',
@@ -16,10 +15,9 @@ export class AppComponent {
 
   constructor(
     environmentService: EnvironmentService,
-    serviceA: ServiceAService,
-    testService: TestService
+    // For Cypress app actions
+    appActionsTestService: AppActionsTestService
   ) {
-    console.log('environmentService.appCode>', environmentService.appCode);
     this.appCode = environmentService.appCode;
   }
 }

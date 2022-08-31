@@ -1,4 +1,4 @@
-const SERVICE_NAME = 'TestService';
+const SERVICE_NAME = 'AppActionsTestService';
 
 export const getService = () =>
   cy.window().should('have.property', SERVICE_NAME);

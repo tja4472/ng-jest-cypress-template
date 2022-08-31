@@ -3,15 +3,16 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-export class TestService {
+export class AppActionsTestService {
   public property: string;
 
   constructor() {
+    // For Cypress app actions
     if (window.Cypress) {
-      window.TestService = this;
+      window.AppActionsTestService = this;
     }
 
-    this.property = 'testServiceProperty';
+    this.property = 'appActionsTestServiceProperty';
   }
 
   method1(text: string): string {
@@ -23,5 +24,4 @@ export class TestService {
   promise1(text: string) {
     return Promise.resolve(text + 'B');
   }
-  //void
 }

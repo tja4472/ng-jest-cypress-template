@@ -25,6 +25,7 @@ const environmentService = new EnvironmentService();
 })
 export class AppModule implements DoBootstrap {
   ngDoBootstrap(appRef: ApplicationRef) {
+    // For Cypress app actions
     appRef.bootstrap(AppComponent);
     if (window.Cypress) {
       // and save the application reference
