@@ -42,7 +42,7 @@
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/user-event": "14.4.3",       
     "@types/jest": "28.1.8",
-    "@types/node": "16.11.58",
+    "@types/node": "16.11.59",
     "@typescript-eslint/eslint-plugin": "5.37.0",
     "@typescript-eslint/parser": "5.37.0",
     "cypress": "10.7.0",
