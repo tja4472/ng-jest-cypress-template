@@ -13,4 +13,9 @@ export const callMethod1 = (text: string) =>
   cy.window().its(SERVICE_NAME).invoke('method1', text);
 
 export const callPromise1 = (text: string) =>
-  cy.window().its(SERVICE_NAME).invoke('promise1', text);
+  // cypress v11
+  // cy.window().its(SERVICE_NAME).invoke('promise1', text);
+  cy
+    .window()
+    .its(SERVICE_NAME)
+    .then((api) => api.promise1(text));
