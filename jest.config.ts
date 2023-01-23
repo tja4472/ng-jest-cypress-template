@@ -1,4 +1,7 @@
-module.exports = {
+// https://thymikee.github.io/jest-preset-angular/docs/getting-started/installation
+import type { Config } from 'jest';
+
+const jestConfig: Config = {
   preset: 'jest-preset-angular',
   setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
   globalSetup: 'jest-preset-angular/global-setup',
@@ -17,3 +20,5 @@ module.exports = {
   },
   resolver: '<rootDir>/jest-resolver.js',
 };
+
+export default jestConfig;
