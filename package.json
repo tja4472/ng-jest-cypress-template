@@ -38,7 +38,7 @@
     "@angular-eslint/template-parser": "15.2.1",
     "@angular/cli": "15.1.6",
     "@angular/compiler-cli": "15.1.5",
-    "@testing-library/angular": "13.2.0",
+    "@testing-library/angular": "13.2.1",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/user-event": "14.4.3",
     "@types/jest": "28.1.8",
