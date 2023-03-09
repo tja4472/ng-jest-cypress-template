@@ -36,10 +36,25 @@ declare global {
        * @example cy.dataCy('greeting')
        */
       dataCy(value: string): Chainable<JQuery<HTMLElement>>;
+      /**
+       *
+       * Calls cy.get using [data-test=${dataTestAttribute}]
+       * @param dataTestAttribute
+       *
+       */
+      getBySel(
+        dataTestAttribute: string,
+        args?: any
+      ): Chainable<JQuery<HTMLElement>>;
     }
   }
 }
 
 Cypress.Commands.add('dataCy', (value) => {
   return cy.get(`[data-cy=${value}]`);
+});
+
+// https://github.com/cypress-io/cypress-realworld-app/blob/develop/cypress/support/commands.ts
+Cypress.Commands.add('getBySel', (selector, ...args) => {
+  return cy.get(`[data-test=${selector}]`, ...args);
 });

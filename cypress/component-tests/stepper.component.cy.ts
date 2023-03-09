@@ -2,6 +2,8 @@ import { EventEmitter } from '@angular/core';
 
 import { createOutputSpy, MountConfig } from 'cypress/angular';
 
+import { DataTestIds, SpyAliases, SpyIds } from './types';
+
 // Component to test.
 import { Name, StepperComponent } from '@app/stepper/stepper.component';
 
@@ -12,6 +14,24 @@ import { Name, StepperComponent } from '@app/stepper/stepper.component';
     @Input() nameObject: Name = { name: 'fred' };
     @Output() change = new EventEmitter();
 */
+
+type EventEmitters = 'change';
+
+type DataTestIdNames = 'counter' | 'nameDiv';
+
+const spyAliases: SpyAliases<EventEmitters> = {
+  change: 'changeSpy',
+} as const;
+
+const spyIds: SpyIds<EventEmitters> = {
+  change: '@changeSpy',
+} as const;
+
+const dataTestIds: DataTestIds<DataTestIdNames> = {
+  counter: 'counter',
+  nameDiv: 'nameDiv',
+} as const;
+
 type Defaults = {
   count: number;
   nameObject: Name;
@@ -27,7 +47,7 @@ function getConfig(defaults: Defaults): MountConfig<StepperComponent> {
     componentProperties: {
       count: defaults.count,
       nameObject: defaults.nameObject,
-      change: createOutputSpy('changeSpy'),
+      change: createOutputSpy(spyAliases.change),
     },
   };
 
@@ -39,10 +59,8 @@ function mountComponent(defaults: Defaults) {
 }
 
 // Set up some constants for the selectors
-const counterSelector = '[data-cy=counter]';
 const incrementSelector = '[aria-label=increment]';
 const decrementSelector = '[aria-label=decrement]';
-const nameSelector = '[data-cy=nameDiv]';
 
 describe('StepperComponent', () => {
   it('mounts', () => {
@@ -54,7 +72,7 @@ describe('StepperComponent', () => {
     cy.mount(StepperComponent, {});
 
     // Assert
-    cy.get(counterSelector).should('have.text', '0');
+    cy.getBySel(dataTestIds.counter).should('have.text', '0');
   });
 
   it('supports an "Input()" count that sets the value', () => {
@@ -64,7 +82,7 @@ describe('StepperComponent', () => {
     mountComponent(source);
 
     // Assert
-    cy.get(counterSelector).should('have.text', '100');
+    cy.getBySel(dataTestIds.counter).should('have.text', '100');
   });
 
   it('when the increment button is pressed, the counter is incremented', () => {
@@ -74,7 +92,7 @@ describe('StepperComponent', () => {
     // Act
     cy.get(incrementSelector).click();
     // Assert
-    cy.get(counterSelector).should('have.text', '1');
+    cy.getBySel(dataTestIds.counter).should('have.text', '1');
   });
 
   it('when the decrement button is pressed, the counter is decremented', () => {
@@ -84,7 +102,7 @@ describe('StepperComponent', () => {
     // Act
     cy.get(decrementSelector).click();
     // Assert
-    cy.get(counterSelector).should('have.text', '-1');
+    cy.getBySel(dataTestIds.counter).should('have.text', '-1');
   });
 
   it('when clicking increment and decrement buttons, the counter is changed as expected', () => {
@@ -92,11 +110,11 @@ describe('StepperComponent', () => {
     source.count = 100;
     mountComponent(source);
 
-    cy.get(counterSelector).should('have.text', '100');
+    cy.getBySel(dataTestIds.counter).should('have.text', '100');
     cy.get(incrementSelector).click();
-    cy.get(counterSelector).should('have.text', '101');
+    cy.getBySel(dataTestIds.counter).should('have.text', '101');
     cy.get(decrementSelector).click().click();
-    cy.get(counterSelector).should('have.text', '99');
+    cy.getBySel(dataTestIds.counter).should('have.text', '99');
   });
 
   it('0-clicking + fires a change event with the incremented value', () => {
@@ -106,7 +124,7 @@ describe('StepperComponent', () => {
     // Act
     cy.get(incrementSelector).click();
     // Assert
-    cy.get('@changeSpy').should('have.been.calledWith', 1);
+    cy.get(spyIds.change).should('have.been.calledWith', 1);
   });
 
   it('1-clicking + fires a change event with the incremented value', () => {
@@ -119,14 +137,14 @@ describe('StepperComponent', () => {
     );
 
     cy.get(incrementSelector).click();
-    cy.get('@changeSpy').should('have.been.calledWith', 101);
+    cy.get(spyIds.change).should('have.been.calledWith', 101);
   });
 
   it('2-clicking + fires a change event with the incremented value', () => {
     // Arrange
     mountComponent(defaults);
     cy.get(incrementSelector).click();
-    cy.get('@changeSpy').should('have.been.called');
+    cy.get(spyIds.change).should('have.been.called');
   });
 
   it('set Input object', () => {
@@ -136,7 +154,7 @@ describe('StepperComponent', () => {
     source.nameObject = testName;
     mountComponent(source);
 
-    cy.get(nameSelector).should('contain.text', testName.name);
+    cy.getBySel(dataTestIds.nameDiv).should('contain.text', testName.name);
   });
   /*
   it('set Input object using template string', () => {
@@ -155,7 +173,7 @@ describe('StepperComponent', () => {
       }
     );
 
-    cy.get(nameSelector).should('contain.text', 'Harry');
+   cy.getBySel(dataTestIds.nameDiv).should('contain.text', 'Harry');
   });
 
   it('set Input object using JSON.stringify', () => {
@@ -172,7 +190,7 @@ describe('StepperComponent', () => {
       }
     );
 
-    cy.get(nameSelector).should('contain.text', 'Harry');
+   cy.getBySel(dataTestIds.nameDiv).should('contain.text', 'Harry');
   });
 */
 });
@@ -198,7 +216,7 @@ describe('StepperComponent using Angular template syntax', () => {
       }
     );
     // Assert
-    cy.get(counterSelector).should('have.text', '0');
+    cy.getBySel(dataTestIds.counter).should('have.text', '0');
   });
 
   it('supports an "Input()" count that sets the value', () => {
@@ -212,7 +230,7 @@ describe('StepperComponent using Angular template syntax', () => {
       }
     );
     // Assert
-    cy.get(counterSelector).should('have.text', '100');
+    cy.getBySel(dataTestIds.counter).should('have.text', '100');
   });
 
   it('when the increment button is pressed, the counter is incremented', () => {
@@ -227,7 +245,7 @@ describe('StepperComponent using Angular template syntax', () => {
     // Act
     cy.get(incrementSelector).click();
     // Assert
-    cy.get(counterSelector).should('have.text', '1');
+    cy.getBySel(dataTestIds.counter).should('have.text', '1');
   });
 
   it('when the decrement button is pressed, the counter is decremented', () => {
@@ -242,7 +260,7 @@ describe('StepperComponent using Angular template syntax', () => {
     // Act
     cy.get(decrementSelector).click();
     // Assert
-    cy.get(counterSelector).should('have.text', '-1');
+    cy.getBySel(dataTestIds.counter).should('have.text', '-1');
   });
 
   it('when clicking increment and decrement buttons, the counter is changed as expected', () => {
@@ -254,11 +272,11 @@ describe('StepperComponent using Angular template syntax', () => {
         declarations: [StepperComponent],
       }
     );
-    cy.get(counterSelector).should('have.text', '100');
+    cy.getBySel(dataTestIds.counter).should('have.text', '100');
     cy.get(incrementSelector).click();
-    cy.get(counterSelector).should('have.text', '101');
+    cy.getBySel(dataTestIds.counter).should('have.text', '101');
     cy.get(decrementSelector).click().click();
-    cy.get(counterSelector).should('have.text', '99');
+    cy.getBySel(dataTestIds.counter).should('have.text', '99');
   });
 
   it('0-clicking + fires a change event with the incremented value', () => {
@@ -279,7 +297,7 @@ describe('StepperComponent using Angular template syntax', () => {
     // Act
     cy.get(incrementSelector).click();
     // Assert
-    cy.get('@changeSpy').should('have.been.calledWith', 1);
+    cy.get(spyIds.change).should('have.been.calledWith', 1);
   });
 
   it('1-clicking + fires a change event with the incremented value', () => {
@@ -298,7 +316,7 @@ describe('StepperComponent using Angular template syntax', () => {
       return cy.wrap(wrapper).as('angular');
     });
     cy.get(incrementSelector).click();
-    cy.get('@changeSpy').should('have.been.calledWith', 101);
+    cy.get(spyIds.change).should('have.been.calledWith', 101);
   });
 
   it('2-clicking + fires a change event with the incremented value', () => {
@@ -315,7 +333,7 @@ describe('StepperComponent using Angular template syntax', () => {
       }
     );
     cy.get(incrementSelector).click();
-    cy.get('@changeSpy').should('have.been.called');
+    cy.get(spyIds.change).should('have.been.called');
   });
 
   it('set Input object', () => {
@@ -330,7 +348,7 @@ describe('StepperComponent using Angular template syntax', () => {
       }
     );
 
-    cy.get(nameSelector).should('contain.text', 'Harry');
+    cy.getBySel(dataTestIds.nameDiv).should('contain.text', 'Harry');
   });
 
   it('set Input object using template string', () => {
@@ -349,7 +367,7 @@ describe('StepperComponent using Angular template syntax', () => {
       }
     );
 
-    cy.get(nameSelector).should('contain.text', 'Harry');
+    cy.getBySel(dataTestIds.nameDiv).should('contain.text', 'Harry');
   });
 
   it('set Input object using JSON.stringify', () => {
@@ -366,6 +384,6 @@ describe('StepperComponent using Angular template syntax', () => {
       }
     );
 
-    cy.get(nameSelector).should('contain.text', 'Harry');
+    cy.getBySel(dataTestIds.nameDiv).should('contain.text', 'Harry');
   });
 });

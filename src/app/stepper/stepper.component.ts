@@ -9,10 +9,10 @@ export type Name = {
   template: `
     <div>
       <button aria-label="decrement" (click)="decrement()">-</button>
-      <span data-cy="counter">{{ count }}</span>
+      <span data-test="counter">{{ count }}</span>
       <button aria-label="increment" (click)="increment()">+</button>
     </div>
-    <div data-cy="nameDiv">Name: {{ nameObject.name }}</div>
+    <div data-test="nameDiv">Name: {{ nameObject.name }}</div>
   `,
 })
 export class StepperComponent {
