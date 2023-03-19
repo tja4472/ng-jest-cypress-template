@@ -28,41 +28,7 @@ declare global {
 }
 */
 
-// Adapted from https://github.com/Muritavo/cypress-toolkit/blob/main/src/support/utility.ts#L36
-const origLog = Cypress.log;
-
-// Filter out Firebase xhr log entries.
-Cypress.log = function (opts, ...other) {
-  // console.log('>>>>>>>>>>>>>>>>');
-  // console.log('>> opts.displayName>', opts.displayName);
-
-  if (
-    (opts.displayName && ['xhr', 'image'].includes(opts.displayName)) ||
-    (opts.name && ['Coverage', 'readfile'].includes(opts.name)) ||
-    ['@cypress/code-coverage'].some((a) =>
-      opts.message
-        ? opts.message[0] && String(opts.message[0]).includes(a)
-        : false
-    )
-  ) {
-    // console.log('== opts.message>', opts.message);
-    // console.log('== opts.displayName>', opts.displayName);
-    // console.log('== opts.type>', opts.type);
-    // delete: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/delete
-    delete opts.message;
-    delete opts.displayName;
-    delete opts.type;
-    const p = new Proxy(
-      {},
-      {
-        get: () => {
-          return () => p;
-        },
-      }
-    );
-
-    return p;
-  }
-
-  return origLog(opts, ...other) as any;
-};
+beforeEach(() => {
+  // disable Cypress's default behavior of logging all XMLHttpRequests and fetches
+  cy.intercept({ resourceType: /xhr|fetch/ }, { log: false });
+});
