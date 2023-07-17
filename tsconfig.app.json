@@ -11,5 +11,5 @@
   // ===
   "files": ["src/main.ts", "src/polyfills.ts", "src/index.d.ts"],
   "include": ["src/**/*.d.ts"],
-  "exclude": ["src/**/*.spec.ts", "src/environments/**/*"]    
+  "exclude": ["src/**/*.spec.ts", "src/environments/**/*"]
 }

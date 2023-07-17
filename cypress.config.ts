@@ -1,4 +1,4 @@
-import { defineConfig } from "cypress";
+import { defineConfig } from 'cypress';
 
 export default defineConfig({
   defaultCommandTimeout: 10000,
@@ -14,7 +14,7 @@ export default defineConfig({
 
       return config;
     },
-    baseUrl: "http://localhost:4200",
+    baseUrl: 'http://localhost:4200',
   },
 
   retries: {
@@ -24,9 +24,9 @@ export default defineConfig({
 
   component: {
     devServer: {
-      framework: "angular",
-      bundler: "webpack",
+      framework: 'angular',
+      bundler: 'webpack',
     },
-    specPattern: "**/*.cy.ts",
+    specPattern: '**/*.cy.ts',
   },
 });

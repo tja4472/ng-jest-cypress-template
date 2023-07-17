@@ -38,12 +38,15 @@ test('is possible to set input and listen for output', async () => {
 test('is possible to set input and listen for output with the template syntax', async () => {
   const sendSpy = jest.fn();
 
-  await render('<app-fixture [value]="47" (sendValue)="sendValue($event)" (clicked)="clicked()"></app-fixture>', {
-    declarations: [InputOutputComponent],
-    componentProperties: {
-      sendValue: sendSpy,
-    },
-  });
+  await render(
+    '<app-fixture [value]="47" (sendValue)="sendValue($event)" (clicked)="clicked()"></app-fixture>',
+    {
+      declarations: [InputOutputComponent],
+      componentProperties: {
+        sendValue: sendSpy,
+      },
+    }
+  );
 
   const incrementControl = screen.getByRole('button', { name: /increment/i });
   const sendControl = screen.getByRole('button', { name: /send/i });
