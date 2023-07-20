@@ -113,7 +113,8 @@ describe('StepperComponent', () => {
     cy.getBySel(dataTestIds.counter).should('have.text', '100');
     cy.get(incrementSelector).click();
     cy.getBySel(dataTestIds.counter).should('have.text', '101');
-    cy.get(decrementSelector).click().click();
+    cy.get(decrementSelector).click();
+    cy.get(decrementSelector).click();
     cy.getBySel(dataTestIds.counter).should('have.text', '99');
   });
 
@@ -275,7 +276,8 @@ describe('StepperComponent using Angular template syntax', () => {
     cy.getBySel(dataTestIds.counter).should('have.text', '100');
     cy.get(incrementSelector).click();
     cy.getBySel(dataTestIds.counter).should('have.text', '101');
-    cy.get(decrementSelector).click().click();
+    cy.get(decrementSelector).click();
+    cy.get(decrementSelector).click();
     cy.getBySel(dataTestIds.counter).should('have.text', '99');
   });
 
