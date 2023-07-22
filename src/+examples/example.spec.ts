@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/class-literal-property-style */
 describe('AppComponent', () => {
   it('static getter', () => {
+    // eslint-disable-next-line @typescript-eslint/no-extraneous-class
     class MyClass {
       static get foo() {
         return true;
@@ -45,7 +47,7 @@ describe('AppComponent', () => {
 
   it('aaa', () => {
     class TestA {
-      get foo(): {} {
+      get foo(): unknown {
         return jest.fn();
       }
     }
@@ -56,6 +58,7 @@ describe('AppComponent', () => {
 
   it('bbb', () => {
     class TestA {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       get foo(): any {
         return jest.fn();
       }

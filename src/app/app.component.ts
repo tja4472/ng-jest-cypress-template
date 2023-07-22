@@ -16,6 +16,7 @@ export class AppComponent {
   constructor(
     environmentService: EnvironmentService,
     // For Cypress app actions
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     appActionsTestService: AppActionsTestService
   ) {
     this.appCode = environmentService.appCode;

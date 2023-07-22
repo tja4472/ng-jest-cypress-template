@@ -1,3 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unnecessary-condition */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // #region eslint-plugin-jest
 // https://github.com/jest-community/eslint-plugin-jest/blob/v26.8.2/docs/rules/no-conditional-expect.md
 class NoErrorThrownError extends Error {}
@@ -25,13 +30,13 @@ const users: Record<number, User> = {
 function request(url: any) {
   return new Promise<User>((resolve, reject) => {
     const userID = parseInt(url.substr('/users/'.length), 10);
-    process.nextTick(() =>
+    process.nextTick(() => {
       users[userID]
         ? resolve(users[userID])
         : reject({
             error: 'User with ' + userID + ' not found.',
-          })
-    );
+          });
+    });
   });
 }
 
@@ -49,7 +54,9 @@ describe('async testing', () => {
   // The assertion for a promise must be returned.
   it('works with promises', () => {
     expect.assertions(1);
-    return getUserName(4).then((data) => expect(data).toBe('Mark'));
+    return getUserName(4).then((data) => {
+      expect(data).toBe('Mark');
+    });
   });
 
   // async/await can be used.
@@ -86,12 +93,12 @@ describe('async testing', () => {
   // Testing for async errors using Promise.catch.
   it('tests error with promises', async () => {
     expect.assertions(1);
-    return getUserName(2).catch((e) =>
+    return getUserName(2).catch((e) => {
       // eslint-disable-next-line jest/no-conditional-expect
       expect(e).toEqual({
         error: 'User with 2 not found.',
-      })
-    );
+      });
+    });
   });
 
   // Or using async/await.

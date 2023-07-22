@@ -7,10 +7,7 @@ import { AppComponent } from './app.component';
 import { InputOutputComponent } from '../+examples/02-input-output';
 import { FormsComponent } from '../+examples/03-forms';
 
-import { EnvironmentService } from './environment.service';
 import { StepperComponent } from './stepper/stepper.component';
-
-const environmentService = new EnvironmentService();
 
 @NgModule({
   declarations: [

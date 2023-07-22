@@ -1,4 +1,4 @@
-export type Environment = {
+export interface Environment {
   appCode: string;
   production: boolean;
-};
+}
