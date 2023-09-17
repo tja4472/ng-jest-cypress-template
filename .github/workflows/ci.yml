@@ -44,7 +44,7 @@ jobs:
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
       - name: Run E2E tests
-        uses: cypress-io/github-action@v4
+        uses: cypress-io/github-action@v6
         with:
           browser: chrome
           spec: cypress/e2e/0-my-tests/**
@@ -52,7 +52,7 @@ jobs:
           wait-on: 'http://localhost:4200'
 
       - name: Run Component tests 🧪
-        uses: cypress-io/github-action@v4
+        uses: cypress-io/github-action@v6
         with:
           browser: chrome
           # we have already installed everything
