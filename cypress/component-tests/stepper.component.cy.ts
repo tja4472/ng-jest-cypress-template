@@ -173,7 +173,7 @@ describe('StepperComponent', () => {
         [nameObject]="{ name: '${name}' }"
        ></app-stepper>`,
       {
-        declarations: [StepperComponent],
+        imports: [StepperComponent],
       }
     );
 
@@ -190,7 +190,7 @@ describe('StepperComponent', () => {
         [nameObject]= '${json}'
        ></app-stepper>`,
       {
-        declarations: [StepperComponent],
+        imports: [StepperComponent],
       }
     );
 
@@ -205,7 +205,7 @@ describe('StepperComponent using Angular template syntax', () => {
       `<app-stepper
       ></app-stepper>`,
       {
-        declarations: [StepperComponent],
+        imports: [StepperComponent],
       }
     );
   });
@@ -216,7 +216,7 @@ describe('StepperComponent using Angular template syntax', () => {
       `<app-stepper
       ></app-stepper>`,
       {
-        declarations: [StepperComponent],
+        imports: [StepperComponent],
       }
     );
     // Assert
@@ -230,7 +230,7 @@ describe('StepperComponent using Angular template syntax', () => {
         [count]='100'
       ></app-stepper>`,
       {
-        declarations: [StepperComponent],
+        imports: [StepperComponent],
       }
     );
     // Assert
@@ -243,7 +243,7 @@ describe('StepperComponent using Angular template syntax', () => {
       `<app-stepper
       ></app-stepper>`,
       {
-        declarations: [StepperComponent],
+        imports: [StepperComponent],
       }
     );
     // Act
@@ -258,7 +258,7 @@ describe('StepperComponent using Angular template syntax', () => {
       `<app-stepper
       ></app-stepper>`,
       {
-        declarations: [StepperComponent],
+        imports: [StepperComponent],
       }
     );
     // Act
@@ -273,7 +273,7 @@ describe('StepperComponent using Angular template syntax', () => {
         [count]='100'
       ></app-stepper>`,
       {
-        declarations: [StepperComponent],
+        imports: [StepperComponent],
       }
     );
     cy.getBySel(dataTestIds.counter).should('have.text', '100');
@@ -296,7 +296,7 @@ describe('StepperComponent using Angular template syntax', () => {
             emit: cy.spy().as('changeSpy'),
           },
         },
-        declarations: [StepperComponent],
+        imports: [StepperComponent],
       }
     );
     // Act
@@ -313,7 +313,7 @@ describe('StepperComponent using Angular template syntax', () => {
       ></app-stepper>`,
       {
         componentProperties: { change: new EventEmitter() },
-        declarations: [StepperComponent],
+        imports: [StepperComponent],
       }
     ).then((wrapper) => {
       console.log({ wrapper });
@@ -331,7 +331,7 @@ describe('StepperComponent using Angular template syntax', () => {
         (change)='change.emit($event)'
       ></app-stepper>`,
       {
-        declarations: [StepperComponent],
+        imports: [StepperComponent],
         componentProperties: {
           change: createOutputSpy<boolean>('changeSpy'),
         },
@@ -349,7 +349,7 @@ describe('StepperComponent using Angular template syntax', () => {
         [nameObject]="{ name: 'Harry' }"
        ></app-stepper>`,
       {
-        declarations: [StepperComponent],
+        imports: [StepperComponent],
       }
     );
 
@@ -368,7 +368,7 @@ describe('StepperComponent using Angular template syntax', () => {
         [nameObject]="{ name: '${name}' }"
        ></app-stepper>`,
       {
-        declarations: [StepperComponent],
+        imports: [StepperComponent],
       }
     );
 
@@ -385,7 +385,7 @@ describe('StepperComponent using Angular template syntax', () => {
         [nameObject]= '${json}'
        ></app-stepper>`,
       {
-        declarations: [StepperComponent],
+        imports: [StepperComponent],
       }
     );
 

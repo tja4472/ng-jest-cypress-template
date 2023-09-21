@@ -43,7 +43,7 @@ test('is possible to set input and listen for output with the template syntax', 
   await render(
     '<app-fixture [value]="47" (sendValue)="sendValue($event)" (clicked)="clicked()"></app-fixture>',
     {
-      declarations: [InputOutputComponent],
+      imports: [InputOutputComponent],
       componentProperties: {
         sendValue: sendSpy,
       },

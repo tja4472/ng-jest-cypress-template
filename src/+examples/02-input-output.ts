@@ -11,6 +11,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 
     <button (click)="sendValue.emit(value)">Send</button>
   `,
+  standalone: true,
 })
 export class InputOutputComponent {
   @Input() value = 0;

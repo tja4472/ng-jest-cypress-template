@@ -14,6 +14,7 @@ export interface Name {
     </div>
     <div data-test="nameDiv">Name: {{ nameObject.name }}</div>
   `,
+  standalone: true,
 })
 export class StepperComponent {
   @Input() count = 0;

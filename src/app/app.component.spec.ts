@@ -16,8 +16,12 @@ describe('AppComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule, ReactiveFormsModule],
-      declarations: [AppComponent, FormsComponent],
+      imports: [
+        RouterTestingModule,
+        ReactiveFormsModule,
+        AppComponent,
+        FormsComponent,
+      ],
       providers: [{ provide: EnvironmentService, useValue: mockEnvironment }],
     }).compileComponents();
   });

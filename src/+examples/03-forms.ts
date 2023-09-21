@@ -2,7 +2,12 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/unbound-method */
 import { Component } from '@angular/core';
-import { UntypedFormBuilder, Validators } from '@angular/forms';
+import {
+  UntypedFormBuilder,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
+import { NgFor, NgIf } from '@angular/common';
 
 // https://github.com/testing-library/angular-testing-library/blob/main/apps/example-app/src/app/examples/03-forms.ts
 
@@ -49,6 +54,8 @@ import { UntypedFormBuilder, Validators } from '@angular/forms';
       </div>
     </form>
   `,
+  standalone: true,
+  imports: [ReactiveFormsModule, NgFor, NgIf],
 })
 export class FormsComponent {
   colors = [
