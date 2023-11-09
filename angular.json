@@ -67,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ng-jest-cypress-template:build:production"
+              "buildTarget": "ng-jest-cypress-template:build:production"
             },
             "development": {
-              "browserTarget": "ng-jest-cypress-template:build:development"
+              "buildTarget": "ng-jest-cypress-template:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ng-jest-cypress-template:build"
+            "buildTarget": "ng-jest-cypress-template:build"
           }
         },
         "test": {
