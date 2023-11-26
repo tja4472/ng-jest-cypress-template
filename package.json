@@ -8,6 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "jest",
     "lint": "ng lint",
+    "lint:fix": "ng lint --fix",    
     "cypress:open:e2e": "cypress open --e2e",
     "cypress:open:component": "cypress open --component",
     "cypress:run": "cypress run",

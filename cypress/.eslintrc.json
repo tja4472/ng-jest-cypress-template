@@ -1,0 +1,16 @@
+/*
+ * angular-eslint
+ * .eslintrc.json
+ * We strongly recommend you stick to using .eslintrc.json.
+ * https://github.com/angular-eslint/angular-eslint#notes-on-supported-eslint-configuration-file-types
+ */
+{
+  "parserOptions": {
+    "project": true
+  },
+  "extends": [
+    "plugin:cypress/recommended",
+    "plugin:chai-friendly/recommended",
+    "../.eslintrc.json"
+  ]
+}
