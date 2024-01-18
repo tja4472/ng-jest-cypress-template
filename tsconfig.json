@@ -23,8 +23,8 @@
     // Added to ng new app
     // "types": ["jest", "node"],
     "paths": {
-      "@app/*": ["src/app/*"]
-    }
+      "@app/*": ["src/app/*"],
+    },
     // ^^^^
   },
   // Required for jest to work with cypress
@@ -39,6 +39,6 @@
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
-  }
+    "strictTemplates": true,
+  },
 }
