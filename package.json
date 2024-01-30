@@ -40,7 +40,7 @@
     "@angular/cli": "17.1.1",
     "@angular/compiler-cli": "17.1.1",
     "@testing-library/angular": "15.2.0",
-    "@testing-library/jest-dom": "6.3.0",
+    "@testing-library/jest-dom": "6.4.0",
     "@testing-library/user-event": "14.5.2",
     "@types/jest": "29.5.11",
     "@types/node": "20.11.10",
