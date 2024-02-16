@@ -33,7 +33,8 @@ function request(url: any) {
     process.nextTick(() => {
       users[userID]
         ? resolve(users[userID])
-        : reject({
+        : // eslint-disable-next-line @typescript-eslint/prefer-promise-reject-errors
+          reject({
             error: 'User with ' + userID + ' not found.',
           });
     });
