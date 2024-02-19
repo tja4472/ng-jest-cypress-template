@@ -7,6 +7,7 @@ import { FormsComponent } from '../+examples/03-forms';
 import { RouterOutlet } from '@angular/router';
 import { NgSwitch, NgSwitchDefault, NgSwitchCase } from '@angular/common';
 import { StepperComponent } from './stepper/stepper.component';
+import { InputSignalStepperComponent } from './input-signal-stepper-component/input-signal-stepper.component';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,7 @@ import { StepperComponent } from './stepper/stepper.component';
     RouterOutlet,
     FormsComponent,
     StepperComponent,
+    InputSignalStepperComponent,
   ],
 })
 export class AppComponent {

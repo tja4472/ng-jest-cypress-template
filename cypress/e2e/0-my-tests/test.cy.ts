@@ -19,4 +19,9 @@ describe('Tests', () => {
     cy.get('[data-test="counter"]').contains(100);
     cy.get('[data-test="nameDiv"]').contains('Harry');
   });
+
+  it('input signal stepper component', () => {
+    cy.get('[data-test="issc-counter"]').contains(200);
+    cy.get('[data-test="issc-nameDiv"]').contains('Fred');
+  });
 });
