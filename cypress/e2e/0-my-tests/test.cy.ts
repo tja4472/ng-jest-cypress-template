@@ -14,4 +14,9 @@ describe('Tests', () => {
   it('[cy.dataCy]should display welcome message', () => {
     cy.dataCy('greeting').contains('Welcome');
   });
+
+  it('stepper component', () => {
+    cy.get('[data-test="counter"]').contains(100);
+    cy.get('[data-test="nameDiv"]').contains('Harry');
+  });
 });

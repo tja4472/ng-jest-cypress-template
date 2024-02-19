@@ -6,6 +6,7 @@ import { AppActionsTestService } from '@app/services/app-actions-test.service';
 import { FormsComponent } from '../+examples/03-forms';
 import { RouterOutlet } from '@angular/router';
 import { NgSwitch, NgSwitchDefault, NgSwitchCase } from '@angular/common';
+import { StepperComponent } from './stepper/stepper.component';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ import { NgSwitch, NgSwitchDefault, NgSwitchCase } from '@angular/common';
     NgSwitchCase,
     RouterOutlet,
     FormsComponent,
+    StepperComponent,
   ],
 })
 export class AppComponent {
