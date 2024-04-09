@@ -16,7 +16,7 @@ bootstrapApplication(AppComponent)
       window.appRef = appRef;
     }
   })
-  .catch((e) => {
+  .catch((e: unknown) => {
     console.error(e);
   });
 

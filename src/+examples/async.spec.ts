@@ -35,14 +35,14 @@ function request(url: any) {
         ? resolve(users[userID])
         : // eslint-disable-next-line @typescript-eslint/prefer-promise-reject-errors
           reject({
-            error: 'User with ' + userID + ' not found.',
+            error: `User with ${userID.toString()} not found.`,
           });
     });
   });
 }
 
 function getUserName(userID: number) {
-  return request('/users/' + userID).then((user: User) => user.name);
+  return request(`/users/${userID.toString()}`).then((user: User) => user.name);
 }
 
 describe('async testing', () => {
@@ -94,7 +94,7 @@ describe('async testing', () => {
   // Testing for async errors using Promise.catch.
   it('tests error with promises', async () => {
     expect.assertions(1);
-    return getUserName(2).catch((e) => {
+    return getUserName(2).catch((e: unknown) => {
       // eslint-disable-next-line jest/no-conditional-expect
       expect(e).toEqual({
         error: 'User with 2 not found.',
