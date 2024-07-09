@@ -9,7 +9,7 @@
     - [1.3.5. Update .eslintrc.json](#135-update-eslintrcjson)
     - [1.3.6. Edit package.json](#136-edit-packagejson)
   - [1.4. Add jest](#14-add-jest)
-    - [1.4.1. Remove karma & jasmine](#141-remove-karma--jasmine)
+    - [1.4.1. Remove karma \& jasmine](#141-remove-karma--jasmine)
     - [1.4.2. Install](#142-install)
     - [1.4.3. Create setup-jest.ts](#143-create-setup-jestts)
     - [1.4.4. Create jest.config.js](#144-create-jestconfigjs)
@@ -33,6 +33,8 @@
 - [App Actions](#app-actions)
   - [eslint plugins](#eslint-plugins)
   - [Jest](#jest)
+
+https://docs.cypress.io/guides/component-testing/angular/examples
 
 # 1. ng-jest-cypress-template
 

@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
 import { EventEmitter } from '@angular/core';
 
-import { createOutputSpy, MountConfig } from 'cypress/angular';
+import { createOutputSpy, MountConfig } from 'cypress/angular-signals';
 
 import { DataTestIds, SpyAliases, SpyIds } from './types';
 

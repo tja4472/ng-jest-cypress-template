@@ -1,26 +1,27 @@
 // https://docs.cypress.io/guides/component-testing/angular/overview
 
 // Component to test.
-import { InputSignalStepperComponent } from '@app/input-signal-stepper-component/input-signal-stepper.component';
-import { createOutputSpy } from 'cypress/angular';
+import { InputOutputStepperComponent } from '@app/components/input-output-stepper.component';
+
+import { createOutputSpy } from 'cypress/angular-signals';
 
 // Set up some constants for the selectors
 const incrementSelector = '[aria-label=issc-increment]';
 // const decrementSelector = '[aria-label=issc-decrement]';
 
-describe('InputSignalStepperComponent', () => {
+describe('InputOutputStepperComponent', () => {
   describe('with Angular template syntax', () => {
     it('mounts', () => {
       // Arrange
       cy.mount(`<app-input-signal-stepper></app-input-signal-stepper>`, {
-        imports: [InputSignalStepperComponent],
+        imports: [InputOutputStepperComponent],
       });
     });
 
     it('check defaults', () => {
       // Arrange
       cy.mount(`<app-input-signal-stepper></app-input-signal-stepper>`, {
-        imports: [InputSignalStepperComponent],
+        imports: [InputOutputStepperComponent],
       });
 
       // Assert
@@ -36,7 +37,7 @@ describe('InputSignalStepperComponent', () => {
             [nameObject]="{ name: 'David' }"
         ></app-input-signal-stepper>`,
         {
-          imports: [InputSignalStepperComponent],
+          imports: [InputOutputStepperComponent],
         }
       );
 
@@ -52,7 +53,7 @@ describe('InputSignalStepperComponent', () => {
           (change)='change.emit($event)'
         ></app-input-signal-stepper>`,
         {
-          imports: [InputSignalStepperComponent],
+          imports: [InputOutputStepperComponent],
           componentProperties: {
             // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
             change: createOutputSpy<boolean>('changeSpy'),
@@ -68,35 +69,65 @@ describe('InputSignalStepperComponent', () => {
 
   describe('with componentProperties', () => {
     it('mounts', () => {
-      cy.mount(InputSignalStepperComponent);
+      cy.mount(InputOutputStepperComponent);
     });
 
     it('check defaults', () => {
       // Arrange
-      cy.mount(InputSignalStepperComponent, {});
+      cy.mount(InputOutputStepperComponent, {});
 
       // Assert
       cy.getBySel('issc-counter').should('have.text', '0');
       cy.getBySel('issc-nameDiv').should('have.text', 'Name: fred');
     });
 
-    /*
-  Gives error
-  Type 'number' is not assignable to type 'InputSignal<number>'.ts(2322)
-  */
-    /*
-  it('pass data via componentProperties', () => {
-    // Arrange
-    cy.mount(InputSignalStepperComponent, {
-      componentProperties: {
-        initalCount: 100
-      }
+    it('pass data via componentProperties', () => {
+      // Arrange
+      cy.mount(InputOutputStepperComponent, {
+        componentProperties: {
+          initalCount: 100,
+        },
+      });
+
+      // Assert
+      cy.getBySel('issc-counter').should('have.text', '100');
+      cy.getBySel('issc-nameDiv').should('have.text', 'Name: fred');
     });
 
-    // Assert
-    cy.getBySel('issc-counter').should('have.text', '0');
-    cy.getBySel('issc-nameDiv').should('have.text', 'Name: fred');    
-  });  
-*/
+    it('output() - Using createOutputSpy()', () => {
+      // Arrange
+      cy.mount(InputOutputStepperComponent, {
+        componentProperties: {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+          change: createOutputSpy<boolean>('changeSpy'),
+        },
+      });
+
+      cy.getBySel('issc-counter').should('have.text', '0');
+      cy.get(incrementSelector).click();
+      cy.get('@changeSpy').should('have.been.called');
+      cy.getBySel('issc-counter').should('have.text', '1');
+    });
+
+    /*
+      get@changeSpy
+      CypressError
+      cy.get() could not find a registered alias for: @changeSpy.
+      Available aliases are: initalCountChangeSpy.    
+    */
+    it.skip('output() - Using autoSpyOutputs', () => {
+      // Arrange
+      cy.mount(InputOutputStepperComponent, {
+        autoSpyOutputs: true,
+        componentProperties: {
+          initalCount: 100,
+        },
+      });
+
+      cy.getBySel('issc-counter').should('have.text', '100');
+      cy.get(incrementSelector).click();
+      cy.get('@changeSpy').should('have.been.called');
+      cy.getBySel('issc-counter').should('have.text', '1');
+    });
   });
 });

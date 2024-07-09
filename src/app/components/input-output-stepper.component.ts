@@ -1,4 +1,4 @@
-import { Component, effect, EventEmitter, input, Output } from '@angular/core';
+import { Component, effect, input, output } from '@angular/core';
 
 export interface Name {
   name: string;
@@ -16,14 +16,11 @@ export interface Name {
   `,
   standalone: true,
 })
-export class InputSignalStepperComponent {
-  // @Input() count = 0;
-  // @Input() nameObject: Name = { name: 'fred' };
-
+export class InputOutputStepperComponent {
   initalCount = input<number>(0);
   nameObject = input<Name>({ name: 'fred' });
-  // eslint-disable-next-line @angular-eslint/no-output-native
-  @Output() change = new EventEmitter();
+
+  change = output<number>();
 
   count = 0;
 
