@@ -39,7 +39,7 @@
     "@angular-eslint/template-parser": "18.3.0",
     "@angular/cli": "18.1.4",
     "@angular/compiler-cli": "18.1.4",
-    "@testing-library/angular": "17.2.2",
+    "@testing-library/angular": "17.3.0",
     "@testing-library/dom": "10.4.0",
     "@testing-library/jest-dom": "6.4.8",
     "@testing-library/user-event": "14.5.2",
