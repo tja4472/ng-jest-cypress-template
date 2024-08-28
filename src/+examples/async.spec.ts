@@ -31,6 +31,7 @@ function request(url: any) {
   return new Promise<User>((resolve, reject) => {
     const userID = parseInt(url.substr('/users/'.length), 10);
     process.nextTick(() => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       users[userID]
         ? resolve(users[userID])
         : // eslint-disable-next-line @typescript-eslint/prefer-promise-reject-errors
