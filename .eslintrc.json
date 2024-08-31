@@ -12,7 +12,10 @@
       "files": ["*.ts"],
       "parserOptions": { "project": true },
       "plugins": [
+        /* TODO: Reinstate when compatible with eslint 9
+            "eslint-plugin-import": "2.29.1",
         "eslint-plugin-import",
+        */
         "@angular-eslint/eslint-plugin",
         "@typescript-eslint"
       ],
@@ -73,15 +76,26 @@
       "env": {
         "jest/globals": true
       },
-      "plugins": ["jest", "jest-dom", "testing-library"],
+      "plugins": [
+        "jest",
+        "jest-dom"
+        /* TODO: Reinstate when compatible with eslint 9      
+        "testing-library"
+           "eslint-plugin-testing-library": "6.3.0",
+        */
+      ],
       "extends": [
+        /* TODO: Reinstate when compatible with eslint 9          
         "plugin:testing-library/angular",
+        */
         "plugin:jest/recommended",
         "plugin:jest/style",
         "plugin:jest-dom/recommended"
       ],
       "rules": {
+        /* TODO: Reinstate when compatible with eslint 9         
         "testing-library/prefer-explicit-assert": "error",
+        */
         "jest/consistent-test-it": ["error"],
         "jest/expect-expect": "off"
       }
