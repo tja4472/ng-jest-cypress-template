@@ -46,5 +46,6 @@ testem.log
 Thumbs.db
 
 # Cypress
+/cypress/downloads
 /cypress/screenshots
 /cypress/videos
