@@ -18,9 +18,9 @@ const getError = async <TError>(call: () => unknown): Promise<TError> => {
 };
 // #endregion
 
-interface User {
+type User = {
   name: string;
-}
+};
 
 const users: Record<number, User> = {
   4: { name: 'Mark' },

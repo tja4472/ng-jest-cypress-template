@@ -35,6 +35,7 @@
 export {};
 declare global {
   namespace Cypress {
+    // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
     interface Chainable<Subject> {
       /**
        * Custom command to select DOM element by data-cy attribute.

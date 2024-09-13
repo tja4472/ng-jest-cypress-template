@@ -38,6 +38,12 @@ https://docs.cypress.io/guides/component-testing/angular/examples
 
 # 1. ng-jest-cypress-template
 
+https://angularexperts.io/blog/top-10-angular-architecture-mistakes
+
+Even a one-pager (single feature) application without navigation, this first page / feature should be implemented as the first lazy loaded feature!
+
+I would personally recommend to always define lazy route with the routes based feature with loadChildren which is the most modern and flexible way of doing things. Then, in case our lazy feature contains sub navigation, we can lazy load additional components with loadComponent.
+
 ## 1.1. Create project
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.8.

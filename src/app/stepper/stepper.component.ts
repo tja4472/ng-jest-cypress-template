@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-export interface Name {
+export type Name = {
   name: string;
-}
+};
 
 @Component({
   selector: 'app-stepper',

@@ -1,8 +1,8 @@
 import { Component, effect, input, output } from '@angular/core';
 
-export interface Name {
+export type Name = {
   name: string;
-}
+};
 
 @Component({
   selector: 'app-input-signal-stepper',
