@@ -1,27 +1,18 @@
 import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { ReactiveFormsModule } from '@angular/forms';
-
 import { AppComponent } from './app.component';
-import { FormsComponent } from '../+examples/03-forms';
 
 import { EnvironmentService } from '@app/environment.service';
 import { Environment } from '../environments/environment-types';
 
-describe('AppComponent', () => {
-  const mockEnvironment: Environment = {
-    appCode: '--mockEnvironment--',
-    production: false,
-  };
+const mockEnvironment: Environment = {
+  appCode: '--mockEnvironment--',
+  production: false,
+};
 
+describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule,
-        ReactiveFormsModule,
-        AppComponent,
-        FormsComponent,
-      ],
+      imports: [AppComponent],
       providers: [{ provide: EnvironmentService, useValue: mockEnvironment }],
     }).compileComponents();
   });
@@ -32,7 +23,7 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'ng-jest-cypress-template'`, () => {
+  it(`should have the 'ng-jest-cypress-template' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toBe('ng-jest-cypress-template');
@@ -41,10 +32,9 @@ describe('AppComponent', () => {
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain(
-      'ng-jest-cypress-template app is running!'
+    expect(compiled.querySelector('h1')?.textContent).toContain(
+      'Welcome to ng-jest-cypress-template!'
     );
   });
 

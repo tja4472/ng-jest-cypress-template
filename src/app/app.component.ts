@@ -1,28 +1,19 @@
 import { Component } from '@angular/core';
-
-import { EnvironmentService } from '@app/environment.service';
+import { RouterOutlet } from '@angular/router';
 
 import { AppActionsTestService } from '@app/services/app-actions-test.service';
-import { FormsComponent } from '../+examples/03-forms';
-import { RouterOutlet } from '@angular/router';
-import { NgSwitch, NgSwitchDefault, NgSwitchCase } from '@angular/common';
-import { StepperComponent } from './stepper/stepper.component';
-import { InputOutputStepperComponent } from './components/input-output-stepper.component';
+import { EnvironmentService } from '@app/environment.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
   standalone: true,
-  imports: [
-    NgSwitch,
-    NgSwitchDefault,
-    NgSwitchCase,
-    RouterOutlet,
-    FormsComponent,
-    StepperComponent,
-    InputOutputStepperComponent,
-  ],
+  imports: [RouterOutlet],
+  template: `
+    <h1 data-cy="greeting">Welcome to {{ title }}!</h1>
+
+    <router-outlet />
+  `,
+  styles: [],
 })
 export class AppComponent {
   title = 'ng-jest-cypress-template';

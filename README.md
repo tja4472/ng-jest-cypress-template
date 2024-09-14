@@ -1,4 +1,6 @@
 - [1. ng-jest-cypress-template](#1-ng-jest-cypress-template)
+  - [Top 10 Angular Architecture Mistakes](#top-10-angular-architecture-mistakes)
+    - [Not lazy loading ALL the features](#not-lazy-loading-all-the-features)
   - [1.1. Create project](#11-create-project)
   - [1.2. Add eslint](#12-add-eslint)
   - [1.3. Add prettier](#13-add-prettier)
@@ -38,11 +40,66 @@ https://docs.cypress.io/guides/component-testing/angular/examples
 
 # 1. ng-jest-cypress-template
 
+## Top 10 Angular Architecture Mistakes
+
 https://angularexperts.io/blog/top-10-angular-architecture-mistakes
+
+### Not lazy loading ALL the features
 
 Even a one-pager (single feature) application without navigation, this first page / feature should be implemented as the first lazy loaded feature!
 
 I would personally recommend to always define lazy route with the routes based feature with loadChildren which is the most modern and flexible way of doing things. Then, in case our lazy feature contains sub navigation, we can lazy load additional components with loadComponent.
+
+```bash
+ng generate component --name features/home --inline-style --inline-template
+```
+
+```ts
+// app.routes.ts
+import { Routes } from '@angular/router';
+
+export const routes: Routes = [
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'home',
+  },
+  // application with a single feature
+  // implemented as a first lazy loaded feature
+  {
+    path: 'home',
+    loadChildren: () =>
+      import('./features/home/home.routes').then((m) => m.routes),
+  },
+];
+```
+
+```ts
+// home.routes.ts
+import { Routes } from '@angular/router';
+
+export const routes: Routes = [
+  {
+    path: '',
+    loadComponent: () =>
+      import('./home.component').then((m) => m.HomeComponent),
+  },
+
+  // which is easy to extend in the future, eg
+  {
+    path: 'editor',
+    loadComponent: () =>
+      import('./home-editor.component').then((m) => m.HomeEditorComponent),
+  },
+
+  // or a larger sub-feature
+  {
+    path: 'forecast',
+    loadChildren: () =>
+      import('./forecast/forecast.routes').then((m) => m.routes),
+  },
+];
+```
 
 ## 1.1. Create project
 
