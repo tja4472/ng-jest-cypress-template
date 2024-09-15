@@ -1,6 +1,8 @@
 - [1. ng-jest-cypress-template](#1-ng-jest-cypress-template)
   - [Top 10 Angular Architecture Mistakes](#top-10-angular-architecture-mistakes)
     - [Not lazy loading ALL the features](#not-lazy-loading-all-the-features)
+    - [Analyzing architecture manually instead of with the help of tooling](#analyzing-architecture-manually-instead-of-with-the-help-of-tooling)
+      - [Madge](#madge)
   - [1.1. Create project](#11-create-project)
   - [1.2. Add eslint](#12-add-eslint)
   - [1.3. Add prettier](#13-add-prettier)
@@ -99,6 +101,16 @@ export const routes: Routes = [
       import('./forecast/forecast.routes').then((m) => m.routes),
   },
 ];
+```
+
+### Analyzing architecture manually instead of with the help of tooling
+
+#### Madge
+
+https://github.com/pahen/madge
+
+```bash
+npx madge src/main.ts --ts-config tsconfig.json --image ./deps.webp
 ```
 
 ## 1.1. Create project
