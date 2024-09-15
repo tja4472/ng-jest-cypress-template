@@ -3,6 +3,7 @@
     - [Not lazy loading ALL the features](#not-lazy-loading-all-the-features)
     - [Analyzing architecture manually instead of with the help of tooling](#analyzing-architecture-manually-instead-of-with-the-help-of-tooling)
       - [Madge](#madge)
+      - [Eslint plugin boundaries](#eslint-plugin-boundaries)
   - [1.1. Create project](#11-create-project)
   - [1.2. Add eslint](#12-add-eslint)
   - [1.3. Add prettier](#13-add-prettier)
@@ -112,6 +113,10 @@ https://github.com/pahen/madge
 ```bash
 npx madge src/main.ts --ts-config tsconfig.json --image ./deps.webp
 ```
+
+#### Eslint plugin boundaries
+
+https://github.com/javierbrea/eslint-plugin-boundaries
 
 ## 1.1. Create project
 

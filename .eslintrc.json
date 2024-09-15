@@ -17,7 +17,8 @@
         "eslint-plugin-import",
         */
         "@angular-eslint/eslint-plugin",
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "boundaries"
       ],
       "extends": [
         "eslint:recommended",
@@ -26,8 +27,21 @@
         "plugin:@angular-eslint/template/process-inline-templates",
         "plugin:@typescript-eslint/strict-type-checked",
         "plugin:@typescript-eslint/stylistic-type-checked",
-        "prettier"
+        "prettier",
+        "plugin:boundaries/recommended"
       ],
+      "settings": {
+        "boundaries/elements": [
+          {
+            "type": "features",
+            "pattern": "features/*"
+          },
+          {
+            "type": "components",
+            "pattern": "components/*"
+          }
+        ]
+      },
       "rules": {
         "@angular-eslint/directive-selector": [
           "error",
