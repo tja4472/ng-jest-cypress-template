@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
-import { EnvironmentService } from '@app/environment.service';
+import { EnvironmentService } from '@app/services/environment.service';
 import { Environment } from '../environments/environment-types';
 
 const mockEnvironment: Environment = {

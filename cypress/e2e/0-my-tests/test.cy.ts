@@ -16,6 +16,7 @@ describe('Tests', () => {
   });
 
   it('stepper component', () => {
+    cy.visit('/examples');
     cy.get('[data-test="counter"]').contains(100);
     cy.get('[data-test="nameDiv"]').contains('Harry');
   });

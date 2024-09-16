@@ -10,6 +10,7 @@
   "overrides": [
     {
       "files": ["*.ts"],
+      "parser": "@typescript-eslint/parser",
       "parserOptions": { "project": true },
       "plugins": [
         /* TODO: Reinstate when compatible with eslint 9
@@ -32,17 +33,87 @@
       ],
       "settings": {
         "boundaries/elements": [
+          // "mode": "file" < Does not include folders
+          // "mode": "folder" <-- default
+          {
+            "type": "src-files",
+            "pattern": "src/*",
+            "mode": "file"
+          },
+          {
+            "type": "services",
+            "pattern": "app/services/*",
+            "mode": "file"
+          },
+          {
+            "type": "src-app",
+            "pattern": "src/app/*",
+            "mode": "file"
+            // "allow": ["services"]
+          },
+          {
+            "type": "src-examples",
+            "pattern": "src/+examples/*",
+            "mode": "file"
+          },
+          {
+            "type": "src-examples",
+            "pattern": "src/+examples/*",
+            "mode": "folder"
+          },
+          {
+            "type": "src-environments",
+            "pattern": "src/environments/*",
+            "mode": "file"
+          },
+          {
+            "type": "app-components",
+            "pattern": "app/components/*"
+          },
+          {
+            "type": "app-components-file",
+            "pattern": "app/components/*",
+            "mode": "file"
+          },
           {
             "type": "features",
             "pattern": "features/*"
-          },
-          {
-            "type": "components",
-            "pattern": "components/*"
           }
-        ]
+        ],
+        "boundaries/include": ["src/**/*.ts"],
+        "boundaries/ignore": ["src/**/*.spec.ts"],
+        "import/resolver": {
+          "typescript": {
+            "alwaysTryTypes": true
+          }
+        }
       },
       "rules": {
+        "boundaries/no-unknown-files": [2], // 0=off, 1=warn, 2=error
+        "boundaries/element-types": [
+          2,
+          {
+            "default": "disallow",
+            "rules": [
+              {
+                "from": "services",
+                "allow": ["src-environments"]
+              },
+              {
+                "from": "src-app",
+                "allow": ["services", "src-app"]
+              },
+              {
+                "from": "src-files",
+                "allow": ["services", "src-app", "src-environments"]
+              },
+              {
+                "from": "src-environments",
+                "allow": ["src-environments"]
+              }
+            ]
+          }
+        ],
         "@angular-eslint/directive-selector": [
           "error",
           {

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 import { AppActionsTestService } from '@app/services/app-actions-test.service';
-import { EnvironmentService } from '@app/environment.service';
+import { EnvironmentService } from '@app/services/environment.service';
 
 @Component({
   selector: 'app-root',

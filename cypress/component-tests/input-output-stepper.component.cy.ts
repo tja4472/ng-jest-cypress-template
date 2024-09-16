@@ -1,7 +1,7 @@
 // https://docs.cypress.io/guides/component-testing/angular/overview
 
 // Component to test.
-import { InputOutputStepperComponent } from '@app/components/input-output-stepper.component';
+import { InputOutputStepperComponent } from '@app/features/home/input-output-stepper.component';
 
 import { createOutputSpy } from 'cypress/angular-signals';
 

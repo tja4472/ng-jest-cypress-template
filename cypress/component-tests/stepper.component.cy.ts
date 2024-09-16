@@ -7,7 +7,10 @@ import { createOutputSpy, MountConfig } from 'cypress/angular-signals';
 import { DataTestIds, SpyAliases, SpyIds } from './types';
 
 // Component to test.
-import { Name, StepperComponent } from '@app/stepper/stepper.component';
+import {
+  Name,
+  StepperComponent,
+} from '@app/features/examples/ui/stepper/stepper.component';
 
 // https://docs.cypress.io/guides/component-testing/angular/overview
 

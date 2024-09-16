@@ -14,6 +14,7 @@
     "--- lint ---": "",
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
+    "lint:boundaries:debug": "ESLINT_PLUGIN_BOUNDARIES_DEBUG=1 npm run lint > lint-output.log",
     "--- prettier ---": "",
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write ."

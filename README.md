@@ -118,6 +118,10 @@ npx madge src/main.ts --ts-config tsconfig.json --image ./deps.webp
 
 https://github.com/javierbrea/eslint-plugin-boundaries
 
+```bash
+ESLINT_PLUGIN_BOUNDARIES_DEBUG=1 npm run lint
+```
+
 ## 1.1. Create project
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.8.
