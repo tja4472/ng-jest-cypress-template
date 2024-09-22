@@ -7,6 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "jest",
+    "deploy": "ng build && firebase deploy --only hosting",    
+    "preview": "ng build && firebase hosting:channel:deploy aaaaaa",       
     "cypress:open:e2e": "cypress open --e2e --browser chrome",
     "cypress:open:component": "cypress open --component --browser chrome",
     "cypress:run:e2e": "cypress run --e2e --browser chrome",

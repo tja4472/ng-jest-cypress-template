@@ -50,3 +50,7 @@ Thumbs.db
 /cypress/downloads
 /cypress/screenshots
 /cypress/videos
+
+# Firebase
+.firebase
+*-debug.log
