@@ -4,6 +4,8 @@
     - [Analyzing architecture manually instead of with the help of tooling](#analyzing-architecture-manually-instead-of-with-the-help-of-tooling)
       - [Madge](#madge)
       - [Eslint plugin boundaries](#eslint-plugin-boundaries)
+  - [Firebase](#firebase)
+    - [Deploy Targets](#deploy-targets)
   - [1.1. Create project](#11-create-project)
   - [1.2. Add eslint](#12-add-eslint)
   - [1.3. Add prettier](#13-add-prettier)
@@ -120,6 +122,28 @@ https://github.com/javierbrea/eslint-plugin-boundaries
 
 ```bash
 ESLINT_PLUGIN_BOUNDARIES_DEBUG=1 npm run lint
+```
+
+## Firebase
+
+### Deploy Targets
+
+- https://firebase.google.com/docs/cli/targets
+
+```bash
+firebase target:apply hosting main first-try-262cf
+```
+
+```bash
+firebase target:apply hosting other my-site-e7a1
+```
+
+```bash
+firebase deploy --only hosting:main
+```
+
+```bash
+firebase hosting:channel:deploy preview --only main
 ```
 
 ## 1.1. Create project

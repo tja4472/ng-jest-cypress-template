@@ -1,5 +1,19 @@
 {
   "projects": {
     "default": "first-try-262cf"
-  }
+  },
+  "targets": {
+    "first-try-262cf": {
+      "hosting": {
+        "main": [
+          "first-try-262cf"
+        ],
+        "other": [
+          "my-site-e7a1"
+        ]
+      }
+    }
+  },
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }
