@@ -1,15 +1,15 @@
 {
   "projects": {
-    "default": "first-try-262cf"
+    "default": "tests-eb82d"
   },
   "targets": {
-    "first-try-262cf": {
+    "tests-eb82d": {
       "hosting": {
         "main": [
-          "first-try-262cf"
+          "tests-eb82d"
         ],
         "other": [
-          "my-site-e7a1"
+          "tests-other"
         ]
       }
     }

@@ -7,6 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "jest",
+   "--- deploy ---": "",
     "deploy:main": "ng build && firebase deploy --only hosting:main",    
     "deploy:other": "ng build && firebase deploy --only hosting:other",    
     "deploy:preview:main": "ng build && firebase hosting:channel:deploy preview --only main", 
