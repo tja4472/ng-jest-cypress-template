@@ -13,10 +13,7 @@
       "parser": "@typescript-eslint/parser",
       "parserOptions": { "project": true },
       "plugins": [
-        /* TODO: Reinstate when compatible with eslint 9
-            "eslint-plugin-import": "2.29.1",
         "eslint-plugin-import",
-        */
         "@angular-eslint/eslint-plugin",
         "@typescript-eslint",
         "boundaries"
@@ -28,6 +25,8 @@
         "plugin:@angular-eslint/template/process-inline-templates",
         "plugin:@typescript-eslint/strict-type-checked",
         "plugin:@typescript-eslint/stylistic-type-checked",
+        "plugin:import/recommended",
+        "plugin:import/typescript",
         "prettier",
         "plugin:boundaries/recommended"
       ],
