@@ -169,26 +169,15 @@
       "env": {
         "jest/globals": true
       },
-      "plugins": [
-        "jest",
-        "jest-dom"
-        /* TODO: Reinstate when compatible with eslint 9      
-        "testing-library"
-           "eslint-plugin-testing-library": "6.3.0",
-        */
-      ],
+      "plugins": ["jest", "jest-dom", "testing-library"],
       "extends": [
-        /* TODO: Reinstate when compatible with eslint 9          
         "plugin:testing-library/angular",
-        */
         "plugin:jest/recommended",
         "plugin:jest/style",
         "plugin:jest-dom/recommended"
       ],
       "rules": {
-        /* TODO: Reinstate when compatible with eslint 9         
         "testing-library/prefer-explicit-assert": "error",
-        */
         "jest/consistent-test-it": ["error"],
         "jest/expect-expect": "off"
       }
