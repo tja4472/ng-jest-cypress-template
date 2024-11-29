@@ -33,7 +33,7 @@
   // "include": ["src/**/*", "./setup-jest.ts"],
   // ^^^^
   "include": ["src/**/*.ts"],
-  "files": ["./setup-jest.ts"],
+  "files": ["./setup-jest.ts", "jest.config.ts"],
   "exclude": ["node_modules", "cyprus", "cypress.config.ts"],
   // "exclude": ["src/**/*.spec.ts"],
   //
