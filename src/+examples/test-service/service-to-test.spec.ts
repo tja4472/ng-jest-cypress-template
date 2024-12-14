@@ -1,5 +1,4 @@
 // service-to-test.spec.ts
-/* eslint-disable @typescript-eslint/unbound-method */
 import { TestBed } from '@angular/core/testing';
 
 import { describe, expect, it, jest } from '@jest/globals';

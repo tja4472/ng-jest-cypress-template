@@ -179,7 +179,9 @@
       "rules": {
         "testing-library/prefer-explicit-assert": "error",
         "jest/consistent-test-it": ["error"],
-        "jest/expect-expect": "off"
+        "jest/expect-expect": "off",
+        "@typescript-eslint/unbound-method": "off",
+        "jest/unbound-method": "error"
       }
     }
   ]
