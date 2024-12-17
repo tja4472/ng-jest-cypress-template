@@ -20,7 +20,7 @@ export class InputOutputStepperComponent {
   initalCount = input<number>(0);
   nameObject = input<Name>({ name: 'fred' });
 
-  change = output<number>();
+  countChanged = output<number>();
 
   count = 0;
 
@@ -32,11 +32,11 @@ export class InputOutputStepperComponent {
 
   increment(): void {
     this.count++;
-    this.change.emit(this.count);
+    this.countChanged.emit(this.count);
   }
 
   decrement(): void {
     this.count--;
-    this.change.emit(this.count);
+    this.countChanged.emit(this.count);
   }
 }

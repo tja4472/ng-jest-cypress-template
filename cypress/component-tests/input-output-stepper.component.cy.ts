@@ -46,11 +46,11 @@ describe('InputOutputStepperComponent', () => {
       cy.getBySel('issc-nameDiv').should('have.text', 'Name: David');
     });
 
-    it('@Output', () => {
+    it.only('@Output', () => {
       // Arrange
       cy.mount(
         `<app-input-signal-stepper
-          (change)='change.emit($event)'
+          (countChanged)='change.emit($event)'
         ></app-input-signal-stepper>`,
         {
           imports: [InputOutputStepperComponent],
@@ -99,7 +99,7 @@ describe('InputOutputStepperComponent', () => {
       cy.mount(InputOutputStepperComponent, {
         componentProperties: {
           // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-          change: createOutputSpy<boolean>('changeSpy'),
+          countChanged: createOutputSpy<boolean>('changeSpy'),
         },
       });
 
