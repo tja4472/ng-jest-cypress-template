@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { AppActionsTestService } from '@app/services/app-actions-test.service';
 import { EnvironmentService } from '@app/services/environment.service';
 
 @Component({
@@ -20,11 +19,14 @@ export class AppComponent {
   appCode = '';
 
   constructor(
-    environmentService: EnvironmentService,
+    environmentService: EnvironmentService
     // For Cypress app actions
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    appActionsTestService: AppActionsTestService
+    // appActionsTestService: AppActionsTestService
   ) {
     this.appCode = environmentService.appCode;
+    // const appActionsTestService = inject(AppActionsTestService)
+    //console.log('HHH>', appActionsTestService.property)
+    //window.AppActionsTestService = appActionsTestService;
   }
 }
