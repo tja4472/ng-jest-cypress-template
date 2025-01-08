@@ -1,14 +1,9 @@
-import { enableProdMode, inject, runInInjectionContext } from '@angular/core';
+import { inject, runInInjectionContext } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
+
 import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
-import { environment } from './environments/environment';
 import { AppActionsTestService } from '@app/services/app-actions-test.service';
-
-// TODO: Remove this?
-if (environment.production) {
-  enableProdMode();
-}
 
 bootstrapApplication(AppComponent, appConfig)
   .then((appRef) => {
