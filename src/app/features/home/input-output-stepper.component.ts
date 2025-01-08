@@ -1,4 +1,12 @@
-import { Component, effect, input, output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  effect,
+  inject,
+  input,
+  output,
+} from '@angular/core';
 
 export type Name = {
   name: string;
@@ -15,8 +23,12 @@ export type Name = {
     <div data-test="issc-nameDiv">Name: {{ nameObject().name }}</div>
   `,
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputOutputStepperComponent {
+  //
+  cdr = inject(ChangeDetectorRef);
+
   initalCount = input<number>(0);
   nameObject = input<Name>({ name: 'fred' });
 
@@ -27,6 +39,7 @@ export class InputOutputStepperComponent {
   constructor() {
     effect(() => {
       this.count = this.initalCount();
+      this.cdr.markForCheck();
     });
   }
 
