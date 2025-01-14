@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/unbound-method */
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   UntypedFormBuilder,
   Validators,
@@ -59,6 +59,8 @@ import { NgFor, NgIf } from '@angular/common';
   imports: [ReactiveFormsModule, NgFor, NgIf],
 })
 export class FormsComponent {
+  private formBuilder = inject(UntypedFormBuilder);
+
   colors = [
     { id: 'R', value: 'Red' },
     { id: 'B', value: 'Blue' },
@@ -72,8 +74,6 @@ export class FormsComponent {
     ],
     color: ['', Validators.required],
   });
-
-  constructor(private formBuilder: UntypedFormBuilder) {}
 
   get formErrors() {
     return Object.keys(this.form.controls)

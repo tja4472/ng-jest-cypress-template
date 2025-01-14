@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 import { EnvironmentService } from '@app/services/environment.service';
@@ -18,12 +18,10 @@ export class AppComponent {
   title = 'ng-jest-cypress-template';
   appCode = '';
 
-  constructor(
-    environmentService: EnvironmentService
-    // For Cypress app actions
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    // appActionsTestService: AppActionsTestService
-  ) {
+  constructor() {
+    // appActionsTestService: AppActionsTestService // eslint-disable-next-line @typescript-eslint/no-unused-vars // For Cypress app actions
+    const environmentService = inject(EnvironmentService);
+
     this.appCode = environmentService.appCode;
     // const appActionsTestService = inject(AppActionsTestService)
     //console.log('HHH>', appActionsTestService.property)
