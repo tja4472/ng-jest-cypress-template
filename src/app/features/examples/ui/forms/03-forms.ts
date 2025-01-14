@@ -8,7 +8,6 @@ import {
   Validators,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { NgFor, NgIf } from '@angular/common';
 
 // https://github.com/testing-library/angular-testing-library/blob/main/apps/example-app/src/app/examples/03-forms.ts
 
@@ -44,19 +43,25 @@ import { NgFor, NgIf } from '@angular/common';
         <label for="color">Color</label>
         <select id="color" name="color" formControlName="color">
           <option value="">---</option>
-          <option *ngFor="let color of colors" [value]="color.id">
-            {{ color.value }}
-          </option>
+          @for (color of colors; track color) {
+            <option [value]="color.id">
+              {{ color.value }}
+            </option>
+          }
         </select>
       </div>
 
-      <div role="alert" *ngIf="formErrors.length">
-        <p *ngFor="let error of formErrors">{{ error }}</p>
-      </div>
+      @if (formErrors.length) {
+        <div role="alert">
+          @for (error of formErrors; track error) {
+            <p>{{ error }}</p>
+          }
+        </div>
+      }
     </form>
   `,
   standalone: true,
-  imports: [ReactiveFormsModule, NgFor, NgIf],
+  imports: [ReactiveFormsModule],
 })
 export class FormsComponent {
   private formBuilder = inject(UntypedFormBuilder);
