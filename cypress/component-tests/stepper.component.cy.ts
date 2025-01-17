@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { EventEmitter } from '@angular/core';
 
-import { createOutputSpy, MountConfig } from 'cypress/angular-signals';
+import { createOutputSpy, MountConfig } from 'cypress/angular';
 
 import { DataTestIds, SpyAliases, SpyIds } from './types';
 

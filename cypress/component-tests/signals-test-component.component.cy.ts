@@ -1,7 +1,7 @@
 // https://github.com/cypress-io/cypress-component-testing-apps/tree/main/angular-standalone
 
 import { signal } from '@angular/core';
-import { createOutputSpy } from 'cypress/angular-signals';
+import { createOutputSpy } from 'cypress/angular';
 
 // Component to test.
 import { TestComponent } from '@app/components/signals/test-component.component';

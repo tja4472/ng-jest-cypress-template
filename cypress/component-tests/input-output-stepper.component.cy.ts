@@ -3,7 +3,7 @@
 // Component to test.
 import { InputOutputStepperComponent } from '@app/features/home/input-output-stepper.component';
 
-import { createOutputSpy } from 'cypress/angular-signals';
+import { createOutputSpy } from 'cypress/angular';
 
 // Set up some constants for the selectors
 const incrementSelector = '[aria-label=issc-increment]';
