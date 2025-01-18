@@ -60,7 +60,6 @@ import {
       }
     </form>
   `,
-  standalone: true,
   imports: [ReactiveFormsModule],
 })
 export class FormsComponent {

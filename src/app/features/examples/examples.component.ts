@@ -5,7 +5,6 @@ import { StepperComponent } from './ui/stepper/stepper.component';
 
 @Component({
   selector: 'app-examples',
-  standalone: true,
   imports: [FormsComponent, StepperComponent],
   template: `
     <p>examples works!</p>

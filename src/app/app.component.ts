@@ -5,7 +5,6 @@ import { EnvironmentService } from '@app/services/environment.service';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   imports: [RouterOutlet],
   template: `
     <h1 data-cy="greeting">Welcome to {{ title }}!</h1>

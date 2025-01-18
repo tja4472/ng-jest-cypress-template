@@ -4,7 +4,6 @@ import { InputOutputStepperComponent } from './input-output-stepper.component';
 
 @Component({
   selector: 'app-home',
-  standalone: true,
   imports: [InputOutputStepperComponent],
   template: `
     <p>home works!</p>
