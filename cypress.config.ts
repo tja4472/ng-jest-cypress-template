@@ -1,6 +1,9 @@
 import { defineConfig } from 'cypress';
 
+// https://docs.cypress.io/app/references/configuration
+
 export default defineConfig({
+  defaultBrowser: 'chrome',
   defaultCommandTimeout: 10000,
 
   e2e: {
@@ -9,7 +12,7 @@ export default defineConfig({
     setupNodeEvents(on, config) {
       // we can grab some process environment variables
       // and stick it into config.env before returning the updated config
-      config.env = config.env || {};
+      // config.env = config.env || {};
       // config.env.FIRESTORE_EMULATOR_HOST = process.env.FIRESTORE_EMULATOR_HOST;
 
       return config;

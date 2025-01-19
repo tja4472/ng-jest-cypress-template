@@ -7,11 +7,6 @@ export class AppActionsTestService {
   public property: string;
 
   constructor() {
-    // For Cypress app actions
-    if (window.Cypress) {
-      //      window.AppActionsTestService = this;
-    }
-
     this.property = 'appActionsTestServiceProperty';
   }
 
