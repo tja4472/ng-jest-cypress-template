@@ -54,7 +54,7 @@
     "@types/node": "22.15.14",
     "@typescript-eslint/eslint-plugin": "8.32.0",
     "@typescript-eslint/parser": "8.32.0",
-    "cypress": "14.3.2",
+    "cypress": "14.3.3",
     "eslint": "9.26.0",
     "eslint-config-prettier": "10.1.2",
     "eslint-import-resolver-typescript": "3.10.1",
